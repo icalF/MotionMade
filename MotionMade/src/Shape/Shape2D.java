@@ -5,6 +5,8 @@
  */
 package Shape;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author FiqieUlya
@@ -14,16 +16,14 @@ public class Shape2D  {
     private int transparency;
     private Point center;
     private String id;
-    private TimeLine [] TL = new TimeLine[20] ;
+    private ArrayList <TimeLine> drawingProperty;
     
     /**
      * Konstruktor Shape 2D, menciptakan timeline sebanyak 20 event untuk
      * penciptaan suatu objek shape
      */
     public Shape2D(){
-        for(int i=0;i<20;i++){
-            TL[i]=new TimeLine();
-        }
+        drawingProperty = new ArrayList<>() ;
         center=new Point();
     }
     /**
@@ -56,17 +56,18 @@ public class Shape2D  {
     }
     /**
      * getter TimeLine ke i  untuk sebuah objek
+     * @param N index yang diambil
      * @return sebuah objek ke n dari Shape 
      */
-    public TimeLine getNTimeLine(int i){
-        return TL[i];
-    } 
+    public TimeLine getTimeLineN(int N){
+        return drawingProperty.get(N);
+    }
     /**
      * getter TimeLine secara keseluruhan dari sebuah objek
-     * @return TimeLine penuh sebuah objek
+     * @return drawingProperty berupa timeline penuh sebuah objek
      */
-    public TimeLine[] getTimeLine(){
-        return TL;
+    public ArrayList<TimeLine> getDrawingProperty(){
+        return drawingProperty;
     }
     /**
      * setter Warna dalam sebuah objek
@@ -97,12 +98,26 @@ public class Shape2D  {
         id=_id;
     }
     /**
-     * setter TimeLine ke n
-     * @param T Time line baru yang akan di ubah
-     * @param i event waktu yang ingin diubah
+     * tambah elemen TimeLine
+     * @param TL Time Line yang akan di sisipkan
      */
-    public void setNTimeLine(TimeLine T,int i){
-        TL[i]=T;
+    public void addTimeLine(TimeLine TL){
+        drawingProperty.add(TL);
+    }
+    /**
+     * menambahkan elemen pada indeks ke i
+     * @param i indek yang akan ditambahkan
+     * @param TL 
+     */
+    public void addTimeLineI(int i,TimeLine TL){
+        drawingProperty.add(i, TL);
+    }
+    /**
+     * menghapus elemen timeline ke i
+     * @param index 
+     */
+    public void delTimeLine(int index){
+        drawingProperty.remove(index);
     }
     /**
      * mengeksekusi efek pergerakan pada shape terhadap time tertentu, 

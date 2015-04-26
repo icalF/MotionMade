@@ -64,4 +64,5 @@ public class TimeLine {
     public void setConstResize(int factor){
         constResize=factor;
     }
+    
 }

@@ -15,13 +15,17 @@ public class ShapeFactory {
       if(shapeType == null){
          return null;
       }		
-      if(shapeType.equalsIgnoreCase("CIRCLE")){
-         return new Circle();
+      if(shapeType.equalsIgnoreCase("ELLIPSE")){
+         return new Ellipse();
          
       } else if(shapeType.equalsIgnoreCase("RECTANGLE")){
          return new Rectangle();
          
-      } 
+      } else if(shapeType.equalsIgnoreCase("TRIANGLE")){
+          return new Triangle();
+      } else if(shapeType.equalsIgnoreCase("LINE")){
+          return new Line();  
+      }
       
       return null;
    }

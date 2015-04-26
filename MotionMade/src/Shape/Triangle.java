@@ -10,12 +10,48 @@ package Shape;
  * @author FiqieUlya
  */
 public class Triangle extends Shape2D implements Shape {
+    private double height;
+    private double edge;
+    /**
+     * Menggambar objek segitiga
+     */
     @Override
     public void draw(){
         
     }
-    @Override
-    public void move(){
-        
+    /**
+     * Konstruktor untuk membuat segitiga dengan nilai default
+     */
+    public Triangle(){
+        height= 0;
+        edge= 0;
+    }
+    /**
+     * setter tinggi segitiga
+     * @param _height 
+     */
+    public void setHeight(double _height){
+        height=_height;
+    }
+    /**
+     * getter tinggi segitiga
+     * @return height
+     */
+    public double getHeight(){
+        return height;
+    }
+    /**
+     * setter alas dari segitiga
+     * @param _edge 
+     */
+    public void setEdge(double _edge){
+        edge=_edge;
+    }
+    /**
+     * getter alas dari segitiga
+     * @return 
+     */
+    public double getEdge(){
+        return edge;
     }
 }

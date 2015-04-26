@@ -10,6 +10,9 @@ package Shape;
  * @author FiqieUlya
  */
 public interface Shape {
+    /**
+     * untuk setiap bentuk harus mampu menggambarnya dalam sebuah bidang
+     */
     public void draw();
-    public void move();
+    
 }
