@@ -12,7 +12,9 @@ package Shape;
 public interface Shape {
     /**
      * untuk setiap bentuk harus mampu menggambarnya dalam sebuah bidang
+     * @param P point
      */
-    public void draw();
-    
+    public void draw(Point P);
+    public void draw(Point startPoint, Point endPoint);
+    public java.awt.Shape getShape();
 }

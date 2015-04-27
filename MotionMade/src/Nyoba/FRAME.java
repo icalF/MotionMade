@@ -18,7 +18,8 @@ public class FRAME {
         JFrame Main = new JFrame();
         Main.setSize(800, 800);
         Main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Main.add(new JavaDisplay.Canvas(), BorderLayout.CENTER);
+        Main.add(new JavaDisplay
+                .Canvas(), BorderLayout.CENTER);
         Main.setVisible(true);
     }
 }

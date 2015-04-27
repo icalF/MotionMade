@@ -5,6 +5,8 @@
  */
 package Shape;
 
+import java.awt.geom.Rectangle2D;
+
 /**
  *
  * @author FiqieUlya
@@ -12,12 +14,31 @@ package Shape;
 public class Rectangle extends Shape2D implements Shape {
     private double length;
     private double width;
+    Rectangle2D.Double shapeRectangle;
     /**
      * Menggambar objek segi empat berdasarkan titik x dan y
+     * @param startPoint
      */
     @Override
-    public void draw(){
-        
+    public void draw(Point startPoint) {
+      shapeRectangle= new Rectangle2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), width, length);
+    }
+    /**
+     * Menggambar shape pertama kali, sekaligus inisialisasi nilai panajng dan lebar
+     * sesuai mouse event
+     * @param startPoint
+     * @param endPoint 
+     */
+    @Override
+    @SuppressWarnings("empty-statement")
+    public void draw(Point startPoint, Point endPoint){
+        width=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
+        length=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
+       shapeRectangle= new Rectangle2D.Double(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()), width, length);
+    }
+    @Override
+    public java.awt.Shape getShape(){
+        return shapeRectangle;
     }
     /**
      * Konstruktor untuk segiempat dengan nilai default
@@ -54,4 +75,5 @@ public class Rectangle extends Shape2D implements Shape {
     public double getWidth(){
         return width;
     }
+    
 }

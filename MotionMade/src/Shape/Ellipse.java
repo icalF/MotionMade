@@ -5,6 +5,8 @@
  */
 package Shape;
 
+import java.awt.geom.Ellipse2D;
+
 /**
  *
  * @author FiqieUlya
@@ -12,13 +14,33 @@ package Shape;
 public class Ellipse extends Shape2D implements Shape { 
     private double semiMajorAxis;
     private double semiMinorAxis;
+    private Ellipse2D.Double shapeForm;
     /**
-     * menggambarkan sebuah bentuk elips atau lingkaran dengan radius major
+     * menggambarkan ulang sebuah bentuk elips atau lingkaran dengan radius major
      * dan minor
+     * @param startPoint 
      */
     @Override
-    public void draw(){
-        
+    public void draw(Point startPoint) {
+      shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), semiMinorAxis, semiMinorAxis);
+    }
+    /**
+     * menggambarkan sebuah bentuk elips atau lingkaran dengan radius major
+     * dan minor sekaligus inisialisasi nilai objek
+     * @param startPoint
+     * @param endPoint
+     */
+    @Override
+    @SuppressWarnings("empty-statement")
+    public void draw(Point startPoint, Point endPoint) {
+        semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
+        semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
+      shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(),semiMajorAxis,semiMinorAxis);
+    }
+    
+    @Override
+    public java.awt.Shape getShape(){
+        return shapeForm;
     }
     /**
      * Konstruktor sebbuah Elips dengan default radius

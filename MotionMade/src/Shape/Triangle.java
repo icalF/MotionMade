@@ -16,7 +16,7 @@ public class Triangle extends Shape2D implements Shape {
      * Menggambar objek segitiga
      */
     @Override
-    public void draw(){
+    public void draw(Point startPoint){
         
     }
     /**

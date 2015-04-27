@@ -20,8 +20,12 @@ public class Line implements Shape {
      * menggambar sebuah garis tepi
      */
     @Override
-    public void draw(){
+    public void draw(Point startPoint){
         
+    }
+    @Override
+    public java.awt.Shape getShape(){
+        return shapeForm;
     }
     /**
      * Konstruktor sebuah garis dengan nilai default
