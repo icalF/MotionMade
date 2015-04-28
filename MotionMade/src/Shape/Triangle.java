@@ -5,17 +5,18 @@
  */
 package Shape;
 
+import java.awt.Shape;
+
 /**
  *
  * @author FiqieUlya
  */
-public class Triangle extends Shape2D implements Shape {
+public class Triangle extends Shape2D implements Drawable {
     private double height;
     private double edge;
     /**
      * Menggambar objek segitiga
      */
-    @Override
     public void draw(Point startPoint){
         
     }
@@ -53,5 +54,15 @@ public class Triangle extends Shape2D implements Shape {
      */
     public double getEdge(){
         return edge;
+    }
+
+    @Override
+    public void draw(Point startpoint, Point endpoint) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Shape getShape() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

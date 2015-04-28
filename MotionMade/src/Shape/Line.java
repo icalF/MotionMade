@@ -5,25 +5,26 @@
  */
 package Shape;
 
+import java.awt.Shape;
 import java.util.ArrayList;
 
 /**
  *
  * @author FiqieUlya
  */
-public class Line implements Shape {
+public class Line implements Drawable {
     private String borderColor;
     private Point startPoint;
     private Point endPoint;
     private ArrayList<TimeLine> drawingProperty;
+    private Shape shapeForm;
     /**
      * menggambar sebuah garis tepi
      */
-    @Override
     public void draw(Point startPoint){
         
     }
-    @Override
+    
     public java.awt.Shape getShape(){
         return shapeForm;
     }
@@ -95,6 +96,11 @@ public class Line implements Shape {
      */
     public void delTimeLine(int index){
         drawingProperty.remove(index);
+    }
+    
+    @Override
+    public void draw(Point startpoint, Point endpoint) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

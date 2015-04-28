@@ -11,7 +11,7 @@ import java.awt.geom.Rectangle2D;
  *
  * @author FiqieUlya
  */
-public class Rectangle extends Shape2D implements Shape {
+public class Rectangle extends Shape2D implements Drawable {
     private double length;
     private double width;
     Rectangle2D.Double shapeRectangle;
@@ -19,7 +19,6 @@ public class Rectangle extends Shape2D implements Shape {
      * Menggambar objek segi empat berdasarkan titik x dan y
      * @param startPoint
      */
-    @Override
     public void draw(Point startPoint) {
       shapeRectangle= new Rectangle2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), width, length);
     }
@@ -29,14 +28,11 @@ public class Rectangle extends Shape2D implements Shape {
      * @param startPoint
      * @param endPoint 
      */
-    @Override
-    @SuppressWarnings("empty-statement")
     public void draw(Point startPoint, Point endPoint){
         width=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
         length=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
        shapeRectangle= new Rectangle2D.Double(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()), width, length);
     }
-    @Override
     public java.awt.Shape getShape(){
         return shapeRectangle;
     }
@@ -74,6 +70,5 @@ public class Rectangle extends Shape2D implements Shape {
      */
     public double getWidth(){
         return width;
-    }
-    
+    }    
 }

@@ -28,6 +28,7 @@ public class FRAME {
         Main.add(propertyPanel.panel,BorderLayout.EAST);
         System.out.println(propertyPanel.getButtonGroup());
         Main.add(new JavaDisplay.Canvas(), BorderLayout.CENTER);
+        
         Main.setVisible(true);
     }
 }

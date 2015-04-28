@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package JavaDisplay;
-import Shape.Shape;
+import Shape.Drawable;
 import Shape.Point;
 import Shape.ShapeFactory;
 import java.awt.AlphaComposite;
@@ -16,7 +16,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-//import java.awt.Shape;
+//import java.awt.Drawable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -30,7 +30,7 @@ import javax.swing.JPanel;
  */
 public class Canvas extends JComponent{
     //public JPanel canvasPanel= new JPanel();
-    ArrayList<Shape> shapes = new ArrayList<>();
+    ArrayList<Drawable> shapes = new ArrayList<>();
 
     Point startDragPoint, endDragPoint;
     
@@ -49,11 +49,11 @@ public class Canvas extends JComponent{
         @Override
         public void mouseReleased(MouseEvent e) {
           ShapeFactory Factory= new ShapeFactory();
-          Shape bentuk = Factory.getShape("RECTANGLE");
+          Drawable bentuk = Factory.getShape("RECTANGLE");
           bentuk.draw(new Point(startDragPoint.getAbsis(),startDragPoint.getOrdinat()),new Point(endDragPoint.getAbsis(),endDragPoint.getOrdinat()));
-          java.awt.Shape r = bentuk.getShape() ;
+          java.awt.Shape r = bentuk.getShape();
 
-          //Shape r = makeRectangle(startDragPoint.x, startDragPoint.y, e.getX(), e.getY());
+          //Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, e.getX(), e.getY());
           shapes.add(bentuk);
           startDragPoint = null;
           endDragPoint = null;
@@ -92,7 +92,7 @@ public class Canvas extends JComponent{
         g2.setStroke(new BasicStroke(2));
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.50f));
 
-        for (Shape s : shapes) {
+        for (Drawable s : shapes) {
         g2.setPaint(Color.BLACK);
         g2.draw(s.getShape());
         g2.setPaint(colors[(colorIndex++) % 6]);
@@ -101,10 +101,10 @@ public class Canvas extends JComponent{
 
       if (startDragPoint != null && endDragPoint != null) {
         /*g2.setPaint(Color.LIGHT_GRAY);
-        Shape r = makeRectangle(startDragPoint.x, startDragPoint.y, endDragPoint.x, endDragPoint.y);
+        Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, endDragPoint.x, endDragPoint.y);
         g2.draw(r);*/
         ShapeFactory Factory= new ShapeFactory();
-        Shape bentuk = Factory.getShape("rectangle");
+        Drawable bentuk = Factory.getShape("rectangle");
         g2.setPaint(Color.LIGHT_GRAY);
         bentuk.draw(startDragPoint,endDragPoint);
                 //makeEllipse(startDragPoint.x,startDragPoint.y,endDragPoint.x-startDragPoint.x,endDragPoint.y  -startDragPoint.y);

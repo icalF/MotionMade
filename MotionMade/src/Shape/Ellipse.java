@@ -11,7 +11,7 @@ import java.awt.geom.Ellipse2D;
  *
  * @author FiqieUlya
  */
-public class Ellipse extends Shape2D implements Shape { 
+public class Ellipse extends Shape2D implements Drawable { 
     private double semiMajorAxis;
     private double semiMinorAxis;
     private Ellipse2D.Double shapeForm;
@@ -20,7 +20,6 @@ public class Ellipse extends Shape2D implements Shape {
      * dan minor
      * @param startPoint 
      */
-    @Override
     public void draw(Point startPoint) {
       shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), semiMinorAxis, semiMinorAxis);
     }
@@ -30,15 +29,12 @@ public class Ellipse extends Shape2D implements Shape {
      * @param startPoint
      * @param endPoint
      */
-    @Override
-    @SuppressWarnings("empty-statement")
     public void draw(Point startPoint, Point endPoint) {
         semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
         semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
       shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(),semiMajorAxis,semiMinorAxis);
     }
     
-    @Override
     public java.awt.Shape getShape(){
         return shapeForm;
     }
@@ -76,6 +72,5 @@ public class Ellipse extends Shape2D implements Shape {
      */
     public double getMinorAxis(){
         return semiMinorAxis;
-    }
-    
+    }    
 }

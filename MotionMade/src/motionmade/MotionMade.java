@@ -5,6 +5,8 @@
  */
 package motionmade;
 
+import Shape.Shape2D;
+
 /**
  *
  * @author FiqieUlya
@@ -13,9 +15,17 @@ public class MotionMade {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
+        Shape2D tes = new Shape2D();
+        tes.wait();
+        // tes play
+        tes.notify();
+        // tes stop
+        // tes.reset();  <-- tambahin
+        tes.wait();
     }
     
 }

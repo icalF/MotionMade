@@ -11,12 +11,12 @@ import java.util.ArrayList;
  *
  * @author FiqieUlya
  */
-public class Shape2D  {
+public class Shape2D extends Thread {
     private String fillColor;
     private int transparency;
     private Point center;
     private String id;
-    private ArrayList <TimeLine> drawingProperty;
+    private final ArrayList <TimeLine> drawingProperty;
     
     /**
      * Konstruktor Shape 2D, menciptakan timeline sebanyak 20 event untuk
@@ -24,7 +24,7 @@ public class Shape2D  {
      */
     public Shape2D(){
         drawingProperty = new ArrayList<>() ;
-        center=new Point();
+        center = new Point();
     }
     /**
      * getter Fill color  untuk sebuah objek
@@ -51,7 +51,7 @@ public class Shape2D  {
      * getter nama untuk sebuah objek
      * @return id untuk nama objek 
      */
-    public String getId(){
+    public String getObjectId(){
         return id;
     }
     /**
@@ -123,23 +123,23 @@ public class Shape2D  {
      * mengeksekusi efek pergerakan pada shape terhadap time tertentu, 
      * pergerakan mempengaruhi nilai posisi baru
      * pada objek
-     * @param time event yang akan dieksekusi pada suatu objek  
+     * @param shift  
      */
-    public void moveObject(int time){
-        
+    public void moveObject(Point shift){
+        // geser
     }
     /**
      * mengeksekusi efek perubahan ukuran pada shape terhadap time tertentu pada objek
      * @param time event yang akan dieksekusi pada suatu objek  
      */
-    public void resizeObject(int time){
-        
+    public void resizeObject(float time){
+        // ubahukuran
     }
     /**
      * mengeksekusi efek berputar pada shape terhadap time tertentu pada objek
-     * @param time event yang akan dieksekusi pada suatu objek
+     * @param angle
      */
-    public void rotateObject(int time){
-        
+    public void rotateObject(float angle){
+        // rotasi
     }
 }
