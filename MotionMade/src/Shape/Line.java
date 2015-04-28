@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author FiqieUlya
  */
-public class Line extends Shape {
+public class Line implements Shape {
     private String borderColor;
     private Point startPoint;
     private Point endPoint;
@@ -101,5 +101,18 @@ public class Line extends Shape {
     @Override
     public void draw(Point startPoint, Point endPoint) {
         shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
+    }
+
+    @Override
+    public void setCorner(Point P) {
+        startPoint = P;
+        for (Keyframe k : drawingProperty) {
+            k.setNewPosition(P);
+        }
+    }
+
+    @Override
+    public void draw(int second) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

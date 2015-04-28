@@ -16,13 +16,13 @@ public class ShapeFactory {
          return null;
       }		
       if(shapeType.equalsIgnoreCase("ELLIPSE")){
-         return new Ellipse();
+         return  new Ellipse();
          
       } else if(shapeType.equalsIgnoreCase("RECTANGLE")){
-         return new Rectangle();
+         return  new Rectangle();
          
       } else if(shapeType.equalsIgnoreCase("TRIANGLE")){
-          return new Triangle();
+          return  new Triangle();
       } else if(shapeType.equalsIgnoreCase("LINE")){
           return new Line();  
       }

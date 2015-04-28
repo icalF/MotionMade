@@ -18,7 +18,6 @@ public class Triangle extends Shape2D {
      * Menggambar objek segitiga
      * @param startPoint
      */
-    @Override
     public void draw(Point startPoint){
         
     }
@@ -58,12 +57,15 @@ public class Triangle extends Shape2D {
         return edge;
     }
 
-    @Override
     public void draw(Point startpoint, Point endpoint) {
     }
 
-    @Override
     public Shape getShape() {
         return null;
+    }
+
+    @Override
+    public void draw(int second) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

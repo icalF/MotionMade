@@ -17,11 +17,16 @@ public class Rectangle extends Shape2D {
     Rectangle2D.Double shapeRectangle;
     /**
      * Menggambar objek segi empat berdasarkan titik x dan y
-     * @param startPoint
+     * @param second
      */
     @Override
-    public void draw(Point startPoint) {
-      shapeRectangle= new Rectangle2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), width, length);
+    public void draw(int second) {
+      //shapeRectangle= new Rectangle2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), width, length);
+        Point newPoint = this.getTimeLineOf(second).getNewPosition();
+        double x = this.getTimeLineOf(second).getConstResize();
+        double x1 = x* width;
+        double x2 = x* length;
+        shapeRectangle= new Rectangle2D.Double(newPoint.getAbsis(),newPoint.getOrdinat(), x1,x2 );
     }
     /**
      * Menggambar shape pertama kali, sekaligus inisialisasi nilai panajng dan lebar
@@ -74,4 +79,11 @@ public class Rectangle extends Shape2D {
     public double getWidth(){
         return width;
     }
+
+    @Override
+    public void draw(Point startpoint) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

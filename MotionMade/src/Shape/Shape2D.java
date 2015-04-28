@@ -12,10 +12,10 @@ import java.util.ArrayList;
  *
  * @author FiqieUlya
  */
-public abstract class Shape2D extends Shape {
+public abstract class Shape2D extends Thread  implements Shape {
     private String fillColor;
     private int transparency;
-    private Point center;
+    private Point corner;
     private boolean isPlay;
     private int keyframeIdx;
     private String id;
@@ -32,7 +32,7 @@ public abstract class Shape2D extends Shape {
         for (int i = 0; i < 100000; i++) {
             drawingProperty.add(new Keyframe());
         }
-        center = new Point();
+        corner = new Point();
     }
     
 //        public void addWidth(float w) {
@@ -63,8 +63,8 @@ public abstract class Shape2D extends Shape {
      * getter titik tengah  untuk sebuah objek
      * @return titik tengah dalam objek 
      */
-    public Point getCenter(){
-        return center;
+    public Point getCorner(){
+        return corner;
     }
     /**
      * getter nama untuk sebuah objek
@@ -113,8 +113,9 @@ public abstract class Shape2D extends Shape {
      * setter nilai tengah untuk sebuah objek
      * @param P point nilai tengah baru
      */
-    public void setCenter(Point P){
-        center = P;
+    @Override
+    public void setCorner(Point P){
+        corner = P;
         for (Keyframe k : drawingProperty) {
             k.setNewPosition(P);
         }
