@@ -30,12 +30,11 @@ public class Ellipse extends Shape2D implements Drawable {
      * @param endPoint
      */
     public void draw(Point startPoint, Point endPoint) {
-        semiMajorAxis=Math.abs(endPoint.getAbsis()-startPoint.getAbsis());;
-        semiMinorAxis=Math.abs(endPoint.getOrdinat()-startPoint.getOrdinat());
-      shapeForm= new Ellipse2D.Double(Math.min(startPoint.getAbsis(),endPoint.getAbsis()),Math.min(endPoint.getOrdinat(),startPoint.getOrdinat()),semiMajorAxis, semiMinorAxis);
+        semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
+        semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
+        shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(),semiMajorAxis,semiMinorAxis);
     }
     
-    @Override
     public java.awt.Shape getShape(){
         return shapeForm;
     }
@@ -73,15 +72,15 @@ public class Ellipse extends Shape2D implements Drawable {
      */
     public double getMinorAxis(){
         return semiMinorAxis;
-    }    
+    }
 
     @Override
     public void resizeObject(float time) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setMajorAxis(getMajorAxis() * time);
+        setMinorAxis(getMinorAxis() * time);
     }
 
     @Override
     public void rotateObject(float angle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
