@@ -27,7 +27,7 @@ public class TimeLine extends JPanel  {
         this.setLayout(new GridLayout(1,2));
         
         DefaultTableModel model = new DefaultTableModel();
-        for (int i = 1; i <= 10; i++)
+        for (int i = 1; i <= 50; i++)
             model.addColumn(Integer.toString(i));
         
         JTable table = new JTable(model);
@@ -40,7 +40,7 @@ public class TimeLine extends JPanel  {
             public void actionPerformed(ActionEvent e) {
                 // display/center the jdialog when the button is pressed
                 DefaultTableModel mdl = (DefaultTableModel) table.getModel();
-                mdl.addRow(new Object[]{"","","","","","","","","",""});
+                mdl.addRow(new Object[50]);
                 
             }
         });
