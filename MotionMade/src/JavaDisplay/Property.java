@@ -22,6 +22,8 @@ import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 /**
  *
@@ -29,10 +31,11 @@ import javax.swing.border.Border;
  */
 public class Property extends JPanel{
     private final String[] nameButton ={"select","triangle","rectangle","ellipse","line"};
-    private JRadioButton [] button = new JRadioButton[10];
-    private ButtonGroup group;
-    
-    
+    private final JRadioButton [] button = new JRadioButton[10];
+    private final ButtonGroup group;
+    private final String[] nameLabel = {"ID Name  ","Absis   ","Ordinat ","Length  ","Width   "};
+    private final JLabel [] label = new JLabel[5];
+    private final JTextField []textField = new JTextField[5];
     private void createRadioButton(){
         //Create the radio buttons.
         int i=0;
@@ -52,18 +55,34 @@ public class Property extends JPanel{
     public Property(){
         
         createRadioButton();
-        //Group the radio buttons.
-        new JPanel(new GridLayout(0, 1));
+        this.setLayout(new GridLayout(0,1));
+        //new JPanel(new GridLayout(0, 1));
         Border border = BorderFactory.createTitledBorder("Property");
         this.setBorder(border);
-        this.setPreferredSize(new Dimension(100,400));
+        this.setPreferredSize(new Dimension(200,50));
+        //Group the radio buttons.
+        JPanel radio = new JPanel();
+        radio.setLayout(new GridLayout(0,2));
         group = new ButtonGroup();
         GridBagConstraints constraints = new GridBagConstraints();
         for(int i=0; i<nameButton.length;i++){
             constraints.gridx = i;
             group.add(button[i]);
-            this.add(button[i],constraints);
+            radio.add(button[i],constraints);
         }
+        this.add(radio);
+        JPanel PropertyShape = new JPanel();
+        PropertyShape.setLayout(new GridLayout(0,2));
+        PropertyShape.setPreferredSize(new Dimension(200,100));
+        for(int i=0;i<nameLabel.length;i++){
+            label[i]=new JLabel(); 
+            label[i].setText(nameLabel[i]); 
+            textField[i] =new JTextField();
+            //textField[i].setText("Anurag jain(csanuragjain)"); 
+            PropertyShape.add(label[i]);
+            PropertyShape.add(textField[i]);
+        }
+        this.add(PropertyShape);
         
     }
     public ButtonGroup getButtonGroup(){

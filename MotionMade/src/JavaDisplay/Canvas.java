@@ -73,7 +73,9 @@ public class Canvas extends JComponent{
           Shape bentuk = Factory.getShape(currentShape);
           bentuk.draw(new Point(startDragPoint.getAbsis(),startDragPoint.getOrdinat()),new Point(endDragPoint.getAbsis(),endDragPoint.getOrdinat()));
           java.awt.Shape r = bentuk.getShape();
-
+          //EDIT
+          //bentuk.setCorner(startDragPoint);
+          
           //Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, e.getX(), e.getY());
           shapes.add(bentuk);
           startDragPoint = null;
@@ -134,7 +136,15 @@ public class Canvas extends JComponent{
     }
     
     
+    public Shape getShapeof(int i){
+        return shapes.get(i);
+    }
     
+    public void newShape(int s){
+        for(Shape S : shapes){
+            S.draw(s);
+        }
+    }
 }
 
 

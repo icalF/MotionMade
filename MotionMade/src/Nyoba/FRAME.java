@@ -49,6 +49,9 @@ public class FRAME {
         JavaDisplay.Canvas canvasPanel = new JavaDisplay.Canvas();
         Main.add(canvasPanel, BorderLayout.CENTER);
         
+        JavaDisplay.TimeLine timeLinePanel = new JavaDisplay.TimeLine();
+        timeLinePanel.setPreferredSize(new Dimension(800,200));
+        Main.add(timeLinePanel,BorderLayout.SOUTH);
         Main.setVisible(true);
         while(true){
             
