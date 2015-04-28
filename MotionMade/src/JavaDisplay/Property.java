@@ -5,6 +5,8 @@
  */
 package JavaDisplay;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ButtonGroup;
@@ -15,16 +17,18 @@ import javax.swing.JRadioButton;
  *
  * @author FiqieUlya
  */
-public class Property {
-    private String[] nameButton ={"RECTANGLE","ELLIPSE","TRIANGLE"};
+public class Property extends JPanel{
+    private final String[] nameButton ={"TRIANGLE","RECTANGLE","ELLIPSE"};
     private JRadioButton [] button = new JRadioButton[10];
     private ButtonGroup group;
-    public JPanel panel;
+    
     private void createRadioButton(){
         //Create the radio buttons.
         int i=0;
         for(String name : nameButton){
             button[i] = new JRadioButton(name);
+            button[i].setActionCommand(name);
+            button[i].setText(name);
             button[i].setMnemonic(KeyEvent.VK_B);
             button[i].setActionCommand(name);
             i++;
@@ -37,10 +41,11 @@ public class Property {
         createRadioButton();
         //Group the radio buttons.
         group = new ButtonGroup();
-        panel= new JPanel();
+        GridBagConstraints constraints = new GridBagConstraints();
         for(int i=0; i<nameButton.length;i++){
+        constraints.gridx = i;
         group.add(button[i]);
-        panel.add(button[i]);
+        this.add(button[i],constraints);
         }
         
     }
@@ -49,7 +54,7 @@ public class Property {
     }
     public String getSelected(){
         //for(int i=0; i<nameButton.length;i++){
-            return group.getSelection().getSelectedObjects().toString();
+            return group.getSelection().getActionCommand();
         
     }
 }
