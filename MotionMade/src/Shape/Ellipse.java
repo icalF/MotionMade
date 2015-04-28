@@ -11,7 +11,7 @@ import java.awt.geom.Ellipse2D;
  *
  * @author FiqieUlya
  */
-public class Ellipse extends Shape2D implements Drawable { 
+public class Ellipse extends Shape2D { 
     private double semiMajorAxis;
     private double semiMinorAxis;
     private Ellipse2D.Double shapeForm;
@@ -84,5 +84,24 @@ public class Ellipse extends Shape2D implements Drawable {
 
     @Override
     public void rotateObject(float angle) {
+    }
+
+    @Override
+    public void play() {
+        interrupt();
+    }
+
+    @Override
+    public void pause() {
+        try {
+            wait();
+        } catch (InterruptedException ex) {}
+    }
+    
+    @Override
+    public void reset() {
+        try {
+            wait();
+        } catch (InterruptedException ex) {}
     }
 }

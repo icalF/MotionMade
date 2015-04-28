@@ -11,7 +11,7 @@ import java.awt.geom.Rectangle2D;
  *
  * @author FiqieUlya
  */
-public class Rectangle extends Shape2D implements Drawable {
+public class Rectangle extends Shape2D {
     private double length;
     private double width;
     Rectangle2D.Double shapeRectangle;
@@ -80,5 +80,19 @@ public class Rectangle extends Shape2D implements Drawable {
 
     @Override
     public void rotateObject(float angle) {
+    }
+
+    @Override
+    public void play() {
+    }
+
+    @Override
+    public void pause() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void reset() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

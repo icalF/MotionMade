@@ -11,7 +11,7 @@ import java.awt.Shape;
  *
  * @author FiqieUlya
  */
-public class Triangle extends Shape2D implements Drawable {
+public class Triangle extends Shape2D {
     private double height;
     private double edge;
     /**
@@ -76,5 +76,20 @@ public class Triangle extends Shape2D implements Drawable {
 
     @Override
     public void rotateObject(float angle) {
+    }
+
+    @Override
+    public void play() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void pause() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void reset() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -5,7 +5,6 @@
  */
 package Shape;
 
-import java.awt.Shape;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
@@ -13,17 +12,17 @@ import java.util.ArrayList;
  *
  * @author FiqieUlya
  */
-public class Line implements Drawable {
+public class Line extends Shape {
     private String borderColor;
     private Point startPoint;
     private Point endPoint;
     private ArrayList<TimeLine> drawingProperty;
-    private Shape shapeForm;
+    private java.awt.Shape shapeForm;
     /**
      * menggambar sebuah garis tepi
      */
     public void draw(Point sP){
-        shapeForm= new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
+        shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
     
     public java.awt.Shape getShape(){
@@ -101,7 +100,21 @@ public class Line implements Drawable {
     
     @Override
     public void draw(Point startPoint, Point endPoint) {
-        shapeForm= new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
+        shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
-    
+
+    @Override
+    public void play() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void pause() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void reset() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

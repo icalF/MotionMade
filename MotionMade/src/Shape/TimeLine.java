@@ -11,16 +11,16 @@ package Shape;
  */
 public class TimeLine {
     private Point newPosition;
-    private double rotationSpeed;
+    private double newAngle;
     private double constResize;
     
     /**
      * Konstruktor default time line. parameter efek bernilai default
      */
     public TimeLine(){
-        newPosition=null;
-        rotationSpeed=0;
-        constResize=1;
+        newPosition = null;
+        newAngle = 0;
+        constResize = 1;
     }
     /**
      * Getter untuk mengembalikan posisi baru
@@ -33,8 +33,8 @@ public class TimeLine {
      * Getter untuk mengembalikan kecepatan rotasi yang dikenai pada objek Shape
      * @return kecepatan rotasi objek pada timeline tertentu
      */
-    public double getRotationSpeed(){
-        return rotationSpeed;
+    public double getAngle(){
+        return newAngle;
     }
     /**
      * getter untuk mengembalikan konstanta Resize pengubah ukuran objek
@@ -48,21 +48,21 @@ public class TimeLine {
      * @param P point baru sebagai peubah posisi objek
      */
     public void setNewPosition(Point P){
-        newPosition= new Point(P);
+        newPosition = new Point(P);
     }
     /**
      * Setter untuk mengubah nilai kecepatan putar pada time tertentu
      * @param speed kecepatan baru sebagai peubah kecepatan putar objek
      */
     public void setRotationSpeed(int speed){
-        rotationSpeed=speed;
+        newAngle = speed;
     }
     /**
      * Setter untuk mengubah nilai pengkali ukuran suatu objek
      * @param factor constanta baru sebagai peubah ukuran objek
      */
     public void setConstResize(int factor){
-        constResize=factor;
+        constResize = factor;
     }
     
 }

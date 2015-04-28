@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author FiqieUlya
  */
-public abstract class Shape2D extends Thread {
+public abstract class Shape2D extends Shape {
     private String fillColor;
     private int transparency;
     private Point center;
@@ -23,7 +23,7 @@ public abstract class Shape2D extends Thread {
      * penciptaan suatu objek shape
      */
     public Shape2D(){
-        drawingProperty = new ArrayList<>() ;
+        drawingProperty = new ArrayList<>();
         center = new Point();
     }
     /**

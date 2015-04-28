@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package JavaDisplay;
-import Shape.Drawable;
+import Shape.Shape;
 import Shape.Point;
 import Shape.ShapeFactory;
 import java.awt.AlphaComposite;
@@ -28,7 +28,7 @@ import javax.swing.JPanel;
  * @author FiqieUlya
  */
 public class Canvas extends JComponent{
-    ArrayList<Drawable> shapes = new ArrayList<>();
+    ArrayList<Shape> shapes = new ArrayList<>();
     String currentShape;
     Point startDragPoint, endDragPoint;
     public void setCurrentShape(String CS){
@@ -50,7 +50,7 @@ public class Canvas extends JComponent{
         @Override
         public void mouseReleased(MouseEvent e) {
           ShapeFactory Factory= new ShapeFactory();
-          Drawable bentuk = Factory.getShape(currentShape);
+          Shape bentuk = Factory.getShape(currentShape);
           bentuk.draw(new Point(startDragPoint.getAbsis(),startDragPoint.getOrdinat()),new Point(endDragPoint.getAbsis(),endDragPoint.getOrdinat()));
           java.awt.Shape r = bentuk.getShape();
 
@@ -93,7 +93,7 @@ public class Canvas extends JComponent{
         g2.setStroke(new BasicStroke(2));
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.50f));
 
-        for (Drawable s : shapes) {
+        for (Shape s : shapes) {
         g2.setPaint(Color.BLACK);
         g2.draw(s.getShape());
         g2.setPaint(colors[(colorIndex++) % 6]);
@@ -105,7 +105,7 @@ public class Canvas extends JComponent{
         Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, endDragPoint.x, endDragPoint.y);
         g2.draw(r);*/
         ShapeFactory Factory= new ShapeFactory();
-        Drawable bentuk = Factory.getShape(currentShape);
+        Shape bentuk = Factory.getShape(currentShape);
         g2.setPaint(Color.LIGHT_GRAY);
         bentuk.draw(startDragPoint,endDragPoint);
                 //makeEllipse(startDragPoint.x,startDragPoint.y,endDragPoint.x-startDragPoint.x,endDragPoint.y  -startDragPoint.y);
