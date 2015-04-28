@@ -7,18 +7,28 @@ package JavaDisplay;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-
+ 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.border.Border;
 /**
  *
  * @author FiqieUlya
  */
 public class Property extends JPanel{
-    private final String[] nameButton ={"TRIANGLE","RECTANGLE","ELLIPSE","LINE"};
+    private final String[] nameButton ={"select","triangle","rectangle","ellipse","line"};
     private JRadioButton [] button = new JRadioButton[10];
     private ButtonGroup group;
     
@@ -27,7 +37,9 @@ public class Property extends JPanel{
         //Create the radio buttons.
         int i=0;
         for(String name : nameButton){
+            ImageIcon ico = new ImageIcon("img/triangle.png");
             button[i] = new JRadioButton(name);
+            //button[i].setIcon(ico);
             button[i].setActionCommand(name);
             button[i].setText(name);
             button[i].setMnemonic(KeyEvent.VK_B);
@@ -38,14 +50,19 @@ public class Property extends JPanel{
     
     }
     public Property(){
+        
         createRadioButton();
         //Group the radio buttons.
+        new JPanel(new GridLayout(0, 1));
+        Border border = BorderFactory.createTitledBorder("Property");
+        this.setBorder(border);
+        this.setPreferredSize(new Dimension(100,400));
         group = new ButtonGroup();
         GridBagConstraints constraints = new GridBagConstraints();
         for(int i=0; i<nameButton.length;i++){
-        constraints.gridx = i;
-        group.add(button[i]);
-        this.add(button[i],constraints);
+            constraints.gridx = i;
+            group.add(button[i]);
+            this.add(button[i],constraints);
         }
         
     }

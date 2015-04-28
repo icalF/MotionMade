@@ -7,6 +7,7 @@ package Shape;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author FiqieUlya
@@ -29,7 +30,19 @@ public abstract class Shape2D extends Shape {
         keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
         center = new Point();
+        
     }
+    
+//        public void addWidth(float w) {
+//            
+//            this.width += w;
+//        }
+//
+//        public void addHeight(float h) {
+//            
+//            this.height += h;
+//        }
+
     /**
      * getter Fill color  untuk sebuah objek
      * @return fillColor untuk warna dalam objek 
@@ -155,4 +168,6 @@ public abstract class Shape2D extends Shape {
     public void reset() {
         keyframeIdx = 0;
     }
+    
+    
 }

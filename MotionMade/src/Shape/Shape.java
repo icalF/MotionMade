@@ -9,7 +9,7 @@ package Shape;
  *
  * @author FiqieUlya
  */
-public abstract class Shape extends Thread {
+public abstract class Shape extends Thread  {
     /**
      * untuk setiap bentuk harus mampu menggambarnya dalam sebuah bidang
      * @param startpoint
@@ -17,4 +17,6 @@ public abstract class Shape extends Thread {
     abstract public void draw(Point startpoint);
     abstract public void draw(Point startpoint, Point endpoint);
     abstract public java.awt.Shape getShape();
+    
+
 }

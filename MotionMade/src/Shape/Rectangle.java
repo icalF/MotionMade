@@ -84,4 +84,5 @@ public class Rectangle extends Shape2D {
     @Override
     public void rotateObject(float angle) {
     }
+    
 }
