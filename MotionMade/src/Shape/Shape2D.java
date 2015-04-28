@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author FiqieUlya
  */
-public class Shape2D extends Thread {
+public abstract class Shape2D extends Thread {
     private String fillColor;
     private int transparency;
     private Point center;
@@ -74,28 +74,28 @@ public class Shape2D extends Thread {
      * @param Color warna baru untuk sebuah objek
      */
     public void setFillColor(String Color){
-        fillColor=Color;
+        fillColor = Color;
     }
     /**
      * setter transparansi untuk warna dalam objek
      * @param trans nilai transparansi baru
      */
     public void setTransparency(int trans){
-        transparency= trans;
+        transparency = trans;
     }
     /**
      * setter nilai tengah untuk sebuah objek
      * @param P point nilai tengah baru
      */
     public void setCenter(Point P){
-        center=P;
+        center = P;
     }
     /**
      * setter id untuk nama objek
      * @param _id id baru untuk nama objek
      */
     public void setId(String _id){
-        id=_id;
+        id = _id;
     }
     /**
      * tambah elemen TimeLine
@@ -126,20 +126,16 @@ public class Shape2D extends Thread {
      * @param shift  
      */
     public void moveObject(Point shift){
-        // geser
+        center.move(shift.getAbsis(), shift.getOrdinat());
     }
     /**
      * mengeksekusi efek perubahan ukuran pada shape terhadap time tertentu pada objek
      * @param time event yang akan dieksekusi pada suatu objek  
      */
-    public void resizeObject(float time){
-        // ubahukuran
-    }
+    abstract public void resizeObject(float time);
     /**
      * mengeksekusi efek berputar pada shape terhadap time tertentu pada objek
      * @param angle
      */
-    public void rotateObject(float angle){
-        // rotasi
-    }
+    abstract public void rotateObject(float angle);
 }
