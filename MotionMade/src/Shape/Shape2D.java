@@ -148,6 +148,7 @@ public abstract class Shape2D extends Shape {
             keyframeIdx++;
         }
     }
+    
     public void pause() {
         isPlay = false;
     }

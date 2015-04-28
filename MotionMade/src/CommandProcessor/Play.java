@@ -5,14 +5,14 @@
  */
 package CommandProcessor;
 
-import Shape.Shape;
+import Shape.Shape2D;
 import java.util.List;
 
 
 public class Play extends Command {
     @Override
-    public void run(List<Shape> l) {
-        for (Shape d : l) {
+    public void run(List<Shape2D> l) {
+        for (Shape2D d : l) {
             d.play();
         }
     }    
