@@ -31,7 +31,7 @@ public class Rectangle extends Shape2D implements Drawable {
     public void draw(Point startPoint, Point endPoint){
         width=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
         length=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
-       shapeRectangle= new Rectangle2D.Double(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()), width, length);
+        shapeRectangle= new Rectangle2D.Double(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()), width, length);
     }
     public java.awt.Shape getShape(){
         return shapeRectangle;
@@ -70,5 +70,15 @@ public class Rectangle extends Shape2D implements Drawable {
      */
     public double getWidth(){
         return width;
-    }    
+    }
+
+    @Override
+    public void resizeObject(float time) {
+        setWidth(getWidth() * time);
+        setLength(getLength() * time);
+    }
+
+    @Override
+    public void rotateObject(float angle) {
+    }
 }

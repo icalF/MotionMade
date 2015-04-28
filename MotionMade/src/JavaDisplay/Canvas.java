@@ -36,7 +36,7 @@ public class Canvas extends JComponent{
     
     public Canvas(){
         Property propertyPanel= new Property();
-        this.add(propertyPanel.panel,BorderLayout.EAST);
+        this.add(propertyPanel.panel, BorderLayout.EAST);
         this.addMouseListener(new MouseAdapter() {
         @Override
         public void mousePressed(MouseEvent e) {

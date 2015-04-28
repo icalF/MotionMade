@@ -32,7 +32,7 @@ public class Ellipse extends Shape2D implements Drawable {
     public void draw(Point startPoint, Point endPoint) {
         semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
         semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
-      shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(),semiMajorAxis,semiMinorAxis);
+        shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(),semiMajorAxis,semiMinorAxis);
     }
     
     public java.awt.Shape getShape(){
@@ -72,5 +72,15 @@ public class Ellipse extends Shape2D implements Drawable {
      */
     public double getMinorAxis(){
         return semiMinorAxis;
-    }    
+    }
+
+    @Override
+    public void resizeObject(float time) {
+        setMajorAxis(getMajorAxis() * time);
+        setMinorAxis(getMinorAxis() * time);
+    }
+
+    @Override
+    public void rotateObject(float angle) {
+    }
 }

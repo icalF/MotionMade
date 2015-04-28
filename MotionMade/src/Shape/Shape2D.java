@@ -125,7 +125,7 @@ public abstract class Shape2D extends Thread {
      * pada objek
      * @param shift  
      */
-    public void moveObject(Point shift){
+    public void moveObject(Point shift) {
         center.move(shift.getAbsis(), shift.getOrdinat());
     }
     /**

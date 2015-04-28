@@ -25,7 +25,7 @@ public class FRAME {
         
         JavaDisplay.Property propertyPanel = new JavaDisplay.Property();
         Main.add(header,BorderLayout.NORTH);
-        Main.add(propertyPanel.panel,BorderLayout.EAST);
+        Main.add(propertyPanel.panel, BorderLayout.EAST);
         System.out.println(propertyPanel.getButtonGroup());
         Main.add(new JavaDisplay.Canvas(), BorderLayout.CENTER);
         

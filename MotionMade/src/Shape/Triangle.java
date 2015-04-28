@@ -58,11 +58,23 @@ public class Triangle extends Shape2D implements Drawable {
 
     @Override
     public void draw(Point startpoint, Point endpoint) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void moveObject(Point shift) {
+        super.moveObject(shift);
+//        center.move(shift.getAbsis(), shift.getOrdinat());
     }
 
     @Override
     public Shape getShape() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
+    }
+
+    @Override
+    public void resizeObject(float time) {
+    }
+
+    @Override
+    public void rotateObject(float angle) {
     }
 }
