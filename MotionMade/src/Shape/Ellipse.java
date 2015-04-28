@@ -34,7 +34,7 @@ public class Ellipse extends Shape2D {
     public void draw(Point startPoint, Point endPoint) {
         semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
         semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
-        shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(),semiMajorAxis,semiMinorAxis);
+        shapeForm= new Ellipse2D.Double(Math.min(startPoint.getAbsis(),endPoint.getAbsis()),Math.min(endPoint.getOrdinat(),startPoint.getOrdinat()),semiMajorAxis, semiMinorAxis);
     }
     
     public java.awt.Shape getShape(){
