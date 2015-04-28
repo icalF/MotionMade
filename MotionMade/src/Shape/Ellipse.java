@@ -80,14 +80,4 @@ public class Ellipse extends Shape2D {
     public double getMinorAxis(){
         return semiMinorAxis;
     }
-
-    @Override
-    public void resizeObject(float time) {
-        setMajorAxis(getMajorAxis() * time);
-        setMinorAxis(getMinorAxis() * time);
-    }
-
-    @Override
-    public void rotateObject(float angle) {
-    }
 }

@@ -83,6 +83,7 @@ public class Point {
      * Override toString, untuk menuliskan representasi point dalam bentuk(x,y)
      * @return String berisi kordinat absis, dan ordinat
      */
+    @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     } 

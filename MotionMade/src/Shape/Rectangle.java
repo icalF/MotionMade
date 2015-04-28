@@ -74,15 +74,4 @@ public class Rectangle extends Shape2D {
     public double getWidth(){
         return width;
     }
-
-    @Override
-    public void resizeObject(float time) {
-        setWidth(getWidth() * time);
-        setLength(getLength() * time);
-    }
-
-    @Override
-    public void rotateObject(float angle) {
-    }
-    
 }

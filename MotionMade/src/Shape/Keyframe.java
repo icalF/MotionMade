@@ -9,7 +9,7 @@ package Shape;
  *
  * @author FiqieUlya
  */
-public class TimeLine {
+public class Keyframe {
     private Point newPosition;
     private double newAngle;
     private double constResize;
@@ -17,10 +17,19 @@ public class TimeLine {
     /**
      * Konstruktor default time line. parameter efek bernilai default
      */
-    public TimeLine(){
+    public Keyframe(){
         newPosition = null;
         newAngle = 0;
         constResize = 1;
+    }
+    /**
+     * Konstruktor salin
+     * @param k
+     */
+    public Keyframe(Keyframe k){
+        newPosition = k.newPosition;
+        newAngle = k.newAngle;
+        constResize = k.constResize;
     }
     /**
      * Getter untuk mengembalikan posisi baru
@@ -52,17 +61,40 @@ public class TimeLine {
     }
     /**
      * Setter untuk mengubah nilai kecepatan putar pada time tertentu
-     * @param speed kecepatan baru sebagai peubah kecepatan putar objek
+     * @param angle
      */
-    public void setRotationSpeed(int speed){
-        newAngle = speed;
+    public void setAngle(double angle){
+        newAngle = angle;
     }
     /**
      * Setter untuk mengubah nilai pengkali ukuran suatu objek
      * @param factor constanta baru sebagai peubah ukuran objek
      */
-    public void setConstResize(int factor){
+    public void setConstResize(double factor){
         constResize = factor;
     }
     
+    /**
+     * mengeksekusi efek pergerakan pada shape terhadap time tertentu, 
+     * pergerakan mempengaruhi nilai posisi baru
+     * pada objek
+     * @param shift  
+     */
+    public void move(Point shift) {
+        newPosition.move(shift.getAbsis(), shift.getOrdinat());
+    }
+    /**
+     * mengeksekusi efek perubahan ukuran pada shape terhadap time tertentu pada objek
+     * @param time event yang akan dieksekusi pada suatu objek  
+     */
+    public void resizeObject(double time) {
+        constResize += time;
+    }
+    /**
+     * mengeksekusi efek berputar pada shape terhadap time tertentu pada objek
+     * @param angle
+     */
+    public void rotateObject(double angle) {
+        newAngle += angle;
+    }
 }

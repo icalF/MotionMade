@@ -61,23 +61,9 @@ public class Triangle extends Shape2D {
     @Override
     public void draw(Point startpoint, Point endpoint) {
     }
-    
-    @Override
-    public void moveObject(Point shift) {
-        super.moveObject(shift);
-//        center.move(shift.getAbsis(), shift.getOrdinat());
-    }
 
     @Override
     public Shape getShape() {
         return null;
-    }
-
-    @Override
-    public void resizeObject(float time) {
-    }
-
-    @Override
-    public void rotateObject(float angle) {
     }
 }

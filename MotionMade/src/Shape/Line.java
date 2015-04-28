@@ -16,7 +16,7 @@ public class Line extends Shape {
     private String borderColor;
     private Point startPoint;
     private Point endPoint;
-    private ArrayList<TimeLine> drawingProperty;
+    private ArrayList<Keyframe> drawingProperty;
     private java.awt.Shape shapeForm;
     /**
      * menggambar sebuah garis tepi
@@ -60,25 +60,25 @@ public class Line extends Shape {
     }
     
     /**
-     * getter TimeLine secara keseluruhan dari sebuah objek
+     * getter Keyframe secara keseluruhan dari sebuah objek
      * @return drawingProperty berupa timeline penuh sebuah objek
      */
-    public ArrayList<TimeLine> getDrawingProperty(){
+    public ArrayList<Keyframe> getDrawingProperty(){
         return drawingProperty;
     }
     /**
-     * getter TimeLine ke i  untuk sebuah objek
+     * getter Keyframe ke i  untuk sebuah objek
      * @param N index yang diambil
      * @return sebuah objek ke n dari Shape 
      */
-    public TimeLine getTimeLine(int N){
+    public Keyframe getTimeLine(int N){
         return drawingProperty.get(N);
     }
     /**
-     * tambah elemen TimeLine
+     * tambah elemen Keyframe
      * @param TL Time Line yang akan di sisipkan
      */
-    public void addTimeLine(TimeLine TL){
+    public void addTimeLine(Keyframe TL){
         drawingProperty.add(TL);
     }
     
@@ -87,7 +87,7 @@ public class Line extends Shape {
      * @param i indek yang akan ditambahkan
      * @param TL timeline ke i
      */
-    public void addTimeLine(int i,TimeLine TL){
+    public void addTimeLine(int i,Keyframe TL){
         drawingProperty.add(i, TL);
     }
     /**

@@ -19,7 +19,7 @@ public abstract class Shape2D extends Shape {
     private boolean isPlay;
     private int keyframeIdx;
     private String id;
-    private final ArrayList <TimeLine> drawingProperty;
+    private final ArrayList <Keyframe> drawingProperty;
     
     /**
      * Konstruktor Shape 2D, menciptakan timeline sebanyak 20 event untuk
@@ -29,11 +29,10 @@ public abstract class Shape2D extends Shape {
         isPlay = false;
         keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
-        for (int i = 0; i < 200000; i++) {
-            drawingProperty.add(new TimeLine());
+        for (int i = 0; i < 100000; i++) {
+            drawingProperty.add(new Keyframe());
         }
         center = new Point();
-        
     }
     
 //        public void addWidth(float w) {
@@ -75,25 +74,25 @@ public abstract class Shape2D extends Shape {
         return id;
     }
     /**
-     * getter TimeLine sekarang untuk sebuah objek
+     * getter Keyframe sekarang untuk sebuah objek
      * @return sebuah status objek sekarang dari Shape 
      */
-    public TimeLine getTimeLine(){
+    public Keyframe getTimeLine(){
         return drawingProperty.get(keyframeIdx);
     }
     /**
-     * getter TimeLine ke i untuk sebuah objek
-     * @param i
+     * getter Keyframe ke i untuk sebuah objek
+     * @param second
      * @return sebuah status objek ke sekian dari Shape 
      */
-    public TimeLine getTimeLineOf(int i){
-        return drawingProperty.get(i);
+    public Keyframe getTimeLineOf(int second){
+        return drawingProperty.get(second * 50);
     }
     /**
-     * getter TimeLine secara keseluruhan dari sebuah objek
+     * getter Keyframe secara keseluruhan dari sebuah objek
      * @return drawingProperty berupa timeline penuh sebuah objek
      */
-    public ArrayList<TimeLine> getDrawingProperty(){
+    public ArrayList<Keyframe> getDrawingProperty(){
         return drawingProperty;
     }
     /**
@@ -116,6 +115,9 @@ public abstract class Shape2D extends Shape {
      */
     public void setCenter(Point P){
         center = P;
+        for (Keyframe k : drawingProperty) {
+            k.setNewPosition(P);
+        }
     }
     /**
      * setter id untuk nama objek
@@ -125,19 +127,31 @@ public abstract class Shape2D extends Shape {
         id = _id;
     }
     /**
-     * tambah elemen TimeLine
-     * @param TL Time Line yang akan di sisipkan
+     * mengubah properti obyek (pusat, ukuran, sudut)
+     * @param second
+     * @param angle
+     * @param resizeFactor
+     * @param displacement 
      */
-    public void addTimeLine(TimeLine TL){
-        drawingProperty.add(TL);
-    }
-    /**
-     * menambahkan elemen pada indeks ke i
-     * @param i indek yang akan ditambahkan
-     * @param TL 
-     */
-    public void addTimeLineI(int i,TimeLine TL){
-        drawingProperty.add(i, TL);
+    public void setTimeLineI(int second, double angle, 
+        double resizeFactor, Point displacement) {
+        Keyframe TL = new Keyframe(getTimeLineOf(second));
+        angle /= 50;
+        resizeFactor /= 50;
+        displacement.setAbsis(displacement.getAbsis() / 50);
+        displacement.setOrdinat(displacement.getOrdinat() / 50);
+        try {
+            int i;
+            for (i = 0; i < 50; i++) {
+                drawingProperty.set(i + second * 50, TL);
+                TL.move(displacement);
+                TL.resizeObject(resizeFactor);
+                TL.rotateObject(angle);
+            }
+            for (i += second * 50; i < drawingProperty.size(); ++i) {
+                drawingProperty.set(i, TL);
+            }
+        } catch (IndexOutOfBoundsException e) {}
     }
     /**
      * menghapus elemen timeline ke i
@@ -146,25 +160,6 @@ public abstract class Shape2D extends Shape {
     public void delTimeLine(int index){
         drawingProperty.remove(index);
     }
-    /**
-     * mengeksekusi efek pergerakan pada shape terhadap time tertentu, 
-     * pergerakan mempengaruhi nilai posisi baru
-     * pada objek
-     * @param shift  
-     */
-    public void moveObject(Point shift) {
-        center.move(shift.getAbsis(), shift.getOrdinat());
-    }
-    /**
-     * mengeksekusi efek perubahan ukuran pada shape terhadap time tertentu pada objek
-     * @param time event yang akan dieksekusi pada suatu objek  
-     */
-    abstract public void resizeObject(float time);
-    /**
-     * mengeksekusi efek berputar pada shape terhadap time tertentu pada objek
-     * @param angle
-     */
-    abstract public void rotateObject(float angle);
     
     public void play() {
         isPlay = true;
@@ -179,6 +174,4 @@ public abstract class Shape2D extends Shape {
     public void reset() {
         keyframeIdx = 0;
     }
-    
-    
 }
