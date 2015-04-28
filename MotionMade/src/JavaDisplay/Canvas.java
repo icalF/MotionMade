@@ -134,6 +134,9 @@ public class Canvas extends JComponent{
     }
     
     
+    public Shape getShapeof(int i){
+        return shapes.get(i);
+    }
     
 }
 
