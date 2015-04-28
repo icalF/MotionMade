@@ -22,6 +22,7 @@ public class Property extends JPanel{
     private JRadioButton [] button = new JRadioButton[10];
     private ButtonGroup group;
     
+    
     private void createRadioButton(){
         //Create the radio buttons.
         int i=0;
@@ -30,7 +31,6 @@ public class Property extends JPanel{
             button[i].setActionCommand(name);
             button[i].setText(name);
             button[i].setMnemonic(KeyEvent.VK_B);
-            button[i].setActionCommand(name);
             i++;
         }
         button[i-1].setSelected(true);

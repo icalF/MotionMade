@@ -22,13 +22,20 @@ public class FRAME {
         Main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel header = new JPanel();
         header.setBackground(Color.CYAN);
-        
+        //Panel Property berupa radio button
         JavaDisplay.Property propertyPanel = new JavaDisplay.Property();
+        //Header dengan layout di atas
         Main.add(header,BorderLayout.NORTH);
-        Main.add(propertyPanel.panel, BorderLayout.EAST);
-        System.out.println(propertyPanel.getButtonGroup());
-        Main.add(new JavaDisplay.Canvas(), BorderLayout.CENTER);
+        //Property panel dengan layout di kanan
+        Main.add(propertyPanel,BorderLayout.EAST);
+ //System.out.println(propertyPanel.getButtonGroup());
+        //Instans objek Canvas baru
+        JavaDisplay.Canvas canvasPanel = new JavaDisplay.Canvas();
+        Main.add(canvasPanel, BorderLayout.CENTER);
         
         Main.setVisible(true);
+        while(true){
+            canvasPanel.setCurrentShape(propertyPanel.getButtonGroup().getSelection().getActionCommand());
+        }
     }
 }

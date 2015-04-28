@@ -29,14 +29,16 @@ import javax.swing.JPanel;
  * @author FiqieUlya
  */
 public class Canvas extends JComponent{
-    //public JPanel canvasPanel= new JPanel();
     ArrayList<Drawable> shapes = new ArrayList<>();
-
+    String currentShape;
     Point startDragPoint, endDragPoint;
-    
+    public void setCurrentShape(String CS){
+            currentShape= CS;
+    }
     public Canvas(){
-        Property propertyPanel= new Property();
-        this.add(propertyPanel.panel, BorderLayout.EAST);
+        //Property propertyPanel= new Property();
+        //this.add(propertyPanel.panel,BorderLayout.EAST);
+        
         this.addMouseListener(new MouseAdapter() {
         @Override
         public void mousePressed(MouseEvent e) {
@@ -49,7 +51,7 @@ public class Canvas extends JComponent{
         @Override
         public void mouseReleased(MouseEvent e) {
           ShapeFactory Factory= new ShapeFactory();
-          Drawable bentuk = Factory.getShape("RECTANGLE");
+          Drawable bentuk = Factory.getShape(currentShape);
           bentuk.draw(new Point(startDragPoint.getAbsis(),startDragPoint.getOrdinat()),new Point(endDragPoint.getAbsis(),endDragPoint.getOrdinat()));
           java.awt.Shape r = bentuk.getShape();
 
@@ -104,7 +106,7 @@ public class Canvas extends JComponent{
         Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, endDragPoint.x, endDragPoint.y);
         g2.draw(r);*/
         ShapeFactory Factory= new ShapeFactory();
-        Drawable bentuk = Factory.getShape("rectangle");
+        Drawable bentuk = Factory.getShape(currentShape);
         g2.setPaint(Color.LIGHT_GRAY);
         bentuk.draw(startDragPoint,endDragPoint);
                 //makeEllipse(startDragPoint.x,startDragPoint.y,endDragPoint.x-startDragPoint.x,endDragPoint.y  -startDragPoint.y);
