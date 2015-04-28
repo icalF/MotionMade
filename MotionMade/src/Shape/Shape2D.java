@@ -29,10 +29,12 @@ public abstract class Shape2D extends Thread  implements Shape {
         isPlay = false;
         keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
-        for (int i = 0; i < 100000; i++) {
-            drawingProperty.add(new Keyframe());
-        }
         corner = new Point();
+        for (int i = 0; i < 100000; i++) {
+            Keyframe k = new Keyframe();
+            k.setNewPosition(corner);
+            drawingProperty.add(k);
+        }
     }
     
 //        public void addWidth(float w) {

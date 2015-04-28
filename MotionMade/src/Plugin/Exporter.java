@@ -11,11 +11,12 @@ import java.awt.Component;
  *
  * @author Ahmad Naufal Farhan
  */
-public interface Exporter {
+public interface Exporter extends Plugin {
     /**
      * Menyimpan screenshot Canvas ke dalam sebuah file image sesuai ekstensi
      * @param c
      * @param filename nama file export
+     * @return 
      */
     public boolean exportCanvas(Component c, String filename);
     

@@ -9,6 +9,6 @@ package Plugin;
  *
  * @author ical
  */
-public class Plugin {
-    
+public abstract class Plugin {
+    abstract public void run();
 }
