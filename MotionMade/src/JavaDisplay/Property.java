@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
  * @author FiqieUlya
  */
 public class Property extends JPanel{
-    private final String[] nameButton ={"TRIANGLE","RECTANGLE","ELLIPSE"};
+    private final String[] nameButton ={"TRIANGLE","RECTANGLE","ELLIPSE","LINE"};
     private JRadioButton [] button = new JRadioButton[10];
     private ButtonGroup group;
     

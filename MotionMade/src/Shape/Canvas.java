@@ -20,6 +20,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
+
 import java.util.ArrayList;
 
 import javax.swing.JComponent;
@@ -123,5 +124,6 @@ public class Canvas extends JFrame {
     private Ellipse2D.Double makeEllipse(int x1, int y1, double d1, double d2){
         return new Ellipse2D.Double(x1, y1, d1, d2);
     }
+    
   }
 }

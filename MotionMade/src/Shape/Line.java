@@ -6,6 +6,7 @@
 package Shape;
 
 import java.awt.Shape;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 /**
@@ -21,8 +22,8 @@ public class Line implements Drawable {
     /**
      * menggambar sebuah garis tepi
      */
-    public void draw(Point startPoint){
-        
+    public void draw(Point sP){
+        shapeForm= new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
     
     public java.awt.Shape getShape(){
@@ -99,8 +100,8 @@ public class Line implements Drawable {
     }
     
     @Override
-    public void draw(Point startpoint, Point endpoint) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void draw(Point startPoint, Point endPoint) {
+        shapeForm= new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
     
 }

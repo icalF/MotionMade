@@ -20,6 +20,7 @@ public class Ellipse extends Shape2D implements Drawable {
      * dan minor
      * @param startPoint 
      */
+    @Override
     public void draw(Point startPoint) {
       shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), semiMinorAxis, semiMinorAxis);
     }
@@ -29,6 +30,7 @@ public class Ellipse extends Shape2D implements Drawable {
      * @param startPoint
      * @param endPoint
      */
+    @Override
     public void draw(Point startPoint, Point endPoint) {
         semiMajorAxis=Math.abs(endPoint.getAbsis()-startPoint.getAbsis());;
         semiMinorAxis=Math.abs(endPoint.getOrdinat()-startPoint.getOrdinat());
