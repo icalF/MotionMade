@@ -13,7 +13,7 @@ public class Pause extends Command {
     @Override
     public void run(List<Shape> l) {
         for (Shape d : l) {
-            l.pause();
+            d.pause();
         }
     }    
 }

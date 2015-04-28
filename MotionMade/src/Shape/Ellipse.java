@@ -32,11 +32,16 @@ public class Ellipse extends Shape2D {
      */
     @Override
     public void draw(Point startPoint, Point endPoint) {
-        semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
+        semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());
         semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
         shapeForm= new Ellipse2D.Double(Math.min(startPoint.getAbsis(),endPoint.getAbsis()),Math.min(endPoint.getOrdinat(),startPoint.getOrdinat()),semiMajorAxis, semiMinorAxis);
     }
     
+    /**
+     *
+     * @return
+     */
+    @Override
     public java.awt.Shape getShape(){
         return shapeForm;
     }
@@ -84,24 +89,5 @@ public class Ellipse extends Shape2D {
 
     @Override
     public void rotateObject(float angle) {
-    }
-
-    @Override
-    public void play() {
-        interrupt();
-    }
-
-    @Override
-    public void pause() {
-        try {
-            wait();
-        } catch (InterruptedException ex) {}
-    }
-    
-    @Override
-    public void reset() {
-        try {
-            wait();
-        } catch (InterruptedException ex) {}
     }
 }

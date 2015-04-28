@@ -16,7 +16,9 @@ public class Triangle extends Shape2D {
     private double edge;
     /**
      * Menggambar objek segitiga
+     * @param startPoint
      */
+    @Override
     public void draw(Point startPoint){
         
     }
@@ -60,6 +62,7 @@ public class Triangle extends Shape2D {
     public void draw(Point startpoint, Point endpoint) {
     }
     
+    @Override
     public void moveObject(Point shift) {
         super.moveObject(shift);
 //        center.move(shift.getAbsis(), shift.getOrdinat());
@@ -76,20 +79,5 @@ public class Triangle extends Shape2D {
 
     @Override
     public void rotateObject(float angle) {
-    }
-
-    @Override
-    public void play() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void pause() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void reset() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

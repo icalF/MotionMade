@@ -13,7 +13,7 @@ public class Play extends Command {
     @Override
     public void run(List<Shape> l) {
         for (Shape d : l) {
-            l.play();
+            d.play();
         }
     }    
 }

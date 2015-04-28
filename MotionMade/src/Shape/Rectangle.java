@@ -19,6 +19,7 @@ public class Rectangle extends Shape2D {
      * Menggambar objek segi empat berdasarkan titik x dan y
      * @param startPoint
      */
+    @Override
     public void draw(Point startPoint) {
       shapeRectangle= new Rectangle2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), width, length);
     }
@@ -28,11 +29,13 @@ public class Rectangle extends Shape2D {
      * @param startPoint
      * @param endPoint 
      */
+    @Override
     public void draw(Point startPoint, Point endPoint){
-        width=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());;
+        width=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());
         length=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
         shapeRectangle= new Rectangle2D.Double(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()), width, length);
     }
+    @Override
     public java.awt.Shape getShape(){
         return shapeRectangle;
     }
@@ -80,19 +83,5 @@ public class Rectangle extends Shape2D {
 
     @Override
     public void rotateObject(float angle) {
-    }
-
-    @Override
-    public void play() {
-    }
-
-    @Override
-    public void pause() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void reset() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

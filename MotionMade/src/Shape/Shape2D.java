@@ -15,6 +15,8 @@ public abstract class Shape2D extends Shape {
     private String fillColor;
     private int transparency;
     private Point center;
+    private boolean isPlay;
+    private int keyframeIdx;
     private String id;
     private final ArrayList <TimeLine> drawingProperty;
     
@@ -22,7 +24,9 @@ public abstract class Shape2D extends Shape {
      * Konstruktor Shape 2D, menciptakan timeline sebanyak 20 event untuk
      * penciptaan suatu objek shape
      */
-    public Shape2D(){
+    public Shape2D() {
+        isPlay = false;
+        keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
         center = new Point();
     }
@@ -30,14 +34,14 @@ public abstract class Shape2D extends Shape {
      * getter Fill color  untuk sebuah objek
      * @return fillColor untuk warna dalam objek 
      */
-    public String getFillColor(){
+    public String getFillColor() {
         return fillColor;
     }
     /**
      * getter Transparency untuk sebuah objek
      * @return trancparency untuk transparansi warna dalam objek 
      */
-    public int getTransparency(){
+    public int getTransparency() {
         return transparency;
     }
     /**
@@ -55,12 +59,11 @@ public abstract class Shape2D extends Shape {
         return id;
     }
     /**
-     * getter TimeLine ke i  untuk sebuah objek
-     * @param N index yang diambil
-     * @return sebuah objek ke n dari Shape 
+     * getter TimeLine sekarang untuk sebuah objek
+     * @return sebuah status objek sekarang dari Shape 
      */
-    public TimeLine getTimeLineN(int N){
-        return drawingProperty.get(N);
+    public TimeLine getTimeLine(){
+        return drawingProperty.get(keyframeIdx);
     }
     /**
      * getter TimeLine secara keseluruhan dari sebuah objek
@@ -138,4 +141,17 @@ public abstract class Shape2D extends Shape {
      * @param angle
      */
     abstract public void rotateObject(float angle);
+    
+    public void play() {
+        isPlay = true;
+        while (keyframeIdx < drawingProperty.size()) {
+            keyframeIdx++;
+        }
+    }
+    public void pause() {
+        isPlay = false;
+    }
+    public void reset() {
+        keyframeIdx = 0;
+    }
 }

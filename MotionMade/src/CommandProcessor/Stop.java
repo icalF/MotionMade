@@ -13,7 +13,8 @@ public class Stop extends Command {
     @Override
     public void run(List<Shape> l) {
         for (Shape d : l) {
-            l.stop();
+            d.pause();
+            d.reset();
         }
     }    
 }

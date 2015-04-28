@@ -17,7 +17,4 @@ public abstract class Shape extends Thread {
     abstract public void draw(Point startpoint);
     abstract public void draw(Point startpoint, Point endpoint);
     abstract public java.awt.Shape getShape();
-    abstract public void play();
-    abstract public void pause();
-    abstract public void reset();
 }
