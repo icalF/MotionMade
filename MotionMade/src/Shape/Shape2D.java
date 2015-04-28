@@ -29,6 +29,9 @@ public abstract class Shape2D extends Shape {
         isPlay = false;
         keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
+        for (int i = 0; i < 200000; i++) {
+            drawingProperty.add(new TimeLine());
+        }
         center = new Point();
         
     }
