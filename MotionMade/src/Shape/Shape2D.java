@@ -79,6 +79,14 @@ public abstract class Shape2D extends Shape {
         return drawingProperty.get(keyframeIdx);
     }
     /**
+     * getter TimeLine ke i untuk sebuah objek
+     * @param i
+     * @return sebuah status objek ke sekian dari Shape 
+     */
+    public TimeLine getTimeLineOf(int i){
+        return drawingProperty.get(i);
+    }
+    /**
      * getter TimeLine secara keseluruhan dari sebuah objek
      * @return drawingProperty berupa timeline penuh sebuah objek
      */
