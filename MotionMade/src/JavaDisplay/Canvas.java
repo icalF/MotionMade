@@ -35,9 +35,12 @@ public class Canvas extends JComponent{
     Point startDragPoint, endDragPoint;
     
     public Canvas(){
+        Property propertyPanel= new Property();
+        this.add(propertyPanel.panel,BorderLayout.EAST);
         this.addMouseListener(new MouseAdapter() {
         @Override
         public void mousePressed(MouseEvent e) {
+            
           startDragPoint = new Point(e.getX(), e.getY());
           endDragPoint = startDragPoint;
           repaint();
@@ -46,7 +49,7 @@ public class Canvas extends JComponent{
         @Override
         public void mouseReleased(MouseEvent e) {
           ShapeFactory Factory= new ShapeFactory();
-          Shape bentuk = Factory.getShape("Rectangle");
+          Shape bentuk = Factory.getShape("RECTANGLE");
           bentuk.draw(new Point(startDragPoint.getAbsis(),startDragPoint.getOrdinat()),new Point(endDragPoint.getAbsis(),endDragPoint.getOrdinat()));
           java.awt.Shape r = bentuk.getShape() ;
 

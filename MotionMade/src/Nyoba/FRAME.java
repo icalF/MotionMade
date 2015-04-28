@@ -6,7 +6,9 @@
 package Nyoba;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,10 +18,16 @@ public class FRAME {
     public static void main(String[] args) {        
         
         JFrame Main = new JFrame();
-        Main.setSize(800, 800);
+        Main.setSize(800, 500);
         Main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Main.add(new JavaDisplay
-                .Canvas(), BorderLayout.CENTER);
+        JPanel header = new JPanel();
+        header.setBackground(Color.CYAN);
+        
+        JavaDisplay.Property propertyPanel = new JavaDisplay.Property();
+        Main.add(header,BorderLayout.NORTH);
+        Main.add(propertyPanel.panel,BorderLayout.EAST);
+        System.out.println(propertyPanel.getButtonGroup());
+        Main.add(new JavaDisplay.Canvas(), BorderLayout.CENTER);
         Main.setVisible(true);
     }
 }
