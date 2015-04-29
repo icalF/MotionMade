@@ -22,6 +22,9 @@ public class Keyframe {
         newAngle = 0;
         constResize = 1;
     }
+    public Keyframe(Point P){
+        newPosition = new Point(P);
+    }
     /**
      * Konstruktor salin
      * @param k

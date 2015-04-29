@@ -19,5 +19,7 @@ public interface Shape   {
     public java.awt.Shape getShape();
     public void setCorner(Point P);
     public void draw(int second);
-
+    public void play();
+    public void setId(String ID);
+    
 }

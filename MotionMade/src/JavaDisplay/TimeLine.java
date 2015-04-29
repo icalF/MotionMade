@@ -23,17 +23,27 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TimeLine extends JPanel  {
     private JButton btn1 = new JButton("Click here to add column!");
-    
+    public JTable table;
+    private int currentRow=0;
+    private int currentCol=0;
+    private int num=0;
+    public int getCurrentObject(){
+        return currentRow;
+    }
+    public int getCurrentKeyFrame(){
+        return currentCol;
+    }
     public TimeLine() {
-        this.setLayout(new GridLayout(1,2));
+        this.setLayout(new GridLayout(0,1));
         
         DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Shape ID");
         for (int i = 1; i <= 50; i++)
             model.addColumn(Integer.toString(i));
         
-        JTable table = new JTable(model);
-        
-        JScrollPane tableContainer = new JScrollPane(table);
+        table = new JTable(model);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        JScrollPane tableContainer = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         
         btn1.addActionListener(new ActionListener()
         {
@@ -45,7 +55,45 @@ public class TimeLine extends JPanel  {
                 
             }
         });
+         table.addMouseListener(new MouseAdapter() {
+           public void mouseClicked(MouseEvent e) {
+               JTable target = (JTable) e.getSource();
+               JPanel myPanel = new JPanel();
+//               
+            currentRow= target.getSelectedRow();
+            currentCol= target.getSelectedColumn();
+            myPanel.setLayout(new GridLayout(0,2));
+            myPanel.setPreferredSize(new Dimension(200,100));
         
+            JLabel setFactor =new JLabel(); 
+            setFactor.setText("Factor ("+(currentRow+1)+","+currentCol+")"); 
+            JTextField fieldFactor = new JTextField(10);
+            //textField[i].setText("Anurag jain(csanuragjain)"); 
+            myPanel.add(setFactor);
+            myPanel.add(fieldFactor);
+            
+            JLabel setNewX =new JLabel(); 
+            setNewX.setText("New X"); 
+            JTextField fieldX = new JTextField(10);
+            //textField[i].setText("Anurag jain(csanuragjain)"); 
+            myPanel.add(setNewX);
+            myPanel.add(fieldX);
+            
+            JLabel setNewY =new JLabel(); 
+            setNewY.setText("New Y"); 
+            JTextField fieldY = new JTextField(10);
+            //textField[i].setText("Anurag jain(csanuragjain)"); 
+            myPanel.add(setNewY);
+            myPanel.add(fieldY);
+            
+               JOptionPane.showMessageDialog(null, myPanel);
+               //String s = JOptionPane.showInputDialog("You Clicked at [" + (target.getSelectedRow()+1) + ", " + (target.getSelectedColumn()+1) + "]\nGet Input:" );
+               
+               
+                //target.setValueAt(field1.getText()+","+field2.getText(), target.getSelectedRow(), target.getSelectedColumn());
+               
+           } 
+        });
         /*table.addMouseListener(new MouseAdapter() {
            public void mouseClicked(MouseEvent e) {
                JTable target = (JTable) e.getSource();
@@ -58,10 +106,17 @@ public class TimeLine extends JPanel  {
         });*/
         
         this.add(tableContainer);
-        this.add(btn1);
+//        this.add(btn1);
         
     }
-
+    public void addTable(){
+        DefaultTableModel mdl = (DefaultTableModel) table.getModel();
+                Object[] A1 = new Object[51];
+                A1[0] = new Integer(num+1);
+                mdl.addRow(A1);
+                num++;
+       
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         

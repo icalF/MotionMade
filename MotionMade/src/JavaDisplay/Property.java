@@ -59,7 +59,7 @@ public class Property extends JPanel{
         //new JPanel(new GridLayout(0, 1));
         Border border = BorderFactory.createTitledBorder("Property");
         this.setBorder(border);
-        this.setPreferredSize(new Dimension(200,50));
+        this.setPreferredSize(new Dimension(250,50));
         //Group the radio buttons.
         JPanel radio = new JPanel();
         radio.setLayout(new GridLayout(0,2));

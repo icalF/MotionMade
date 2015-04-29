@@ -38,6 +38,8 @@ public class Rectangle extends Shape2D {
     public void draw(Point startPoint, Point endPoint){
         width=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());
         length=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
+        Point P = new  Point(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()));
+        this.setCorner(P);
         shapeRectangle= new Rectangle2D.Double(Math.min(startPoint.getAbsis(), endPoint.getAbsis()), Math.min(startPoint.getOrdinat(), endPoint.getOrdinat()), width, length);
     }
     @Override

@@ -74,6 +74,7 @@ public class Canvas extends JComponent{
           bentuk.draw(new Point(startDragPoint.getAbsis(),startDragPoint.getOrdinat()),new Point(endDragPoint.getAbsis(),endDragPoint.getOrdinat()));
           java.awt.Shape r = bentuk.getShape();
           //EDIT
+          
           //bentuk.setCorner(startDragPoint);
           
           //Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, e.getX(), e.getY());
@@ -119,6 +120,7 @@ public class Canvas extends JComponent{
         g2.setPaint(Color.BLACK);
         g2.draw(s.getShape());
         g2.setPaint(colors[(colorIndex++) % 6]);
+        
         g2.fill(s.getShape());
       }
 
@@ -139,11 +141,16 @@ public class Canvas extends JComponent{
     public Shape getShapeof(int i){
         return shapes.get(i);
     }
+    public int getObject(){
+        return shapes.size();
+    }
     
-    public void newShape(int s){
+    public void newShape(){
         for(Shape S : shapes){
-            S.draw(s);
+            S.play();
+            repaint();
         }
+        
     }
 }
 

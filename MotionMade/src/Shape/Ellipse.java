@@ -80,6 +80,10 @@ public class Ellipse extends Shape2D {
 
     @Override
     public void draw(int second) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Point newPoint = this.getTimeLineOf(second).getNewPosition();
+        double x = this.getTimeLineOf(second).getConstResize();
+        double x1 = x* semiMajorAxis;
+        double x2 = x* semiMinorAxis;
+        shapeForm= new Ellipse2D.Double(newPoint.getAbsis(),newPoint.getOrdinat(), x1,x2);
     }
 }
