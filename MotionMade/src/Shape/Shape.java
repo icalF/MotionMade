@@ -20,6 +20,11 @@ public interface Shape   {
     public void setCorner(Point P);
     public void draw(int second);
     public void play();
+    public void pause();
+    public void reset();
     public void setId(String ID);
-    
+    public String getIdName();
+    public Point getCorner();
+    public double getWidth();
+    public double getLength();
 }

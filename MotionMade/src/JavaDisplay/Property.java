@@ -5,6 +5,7 @@
  */
 package JavaDisplay;
 
+import Shape.Shape;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -18,6 +19,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -91,6 +93,17 @@ public class Property extends JPanel{
     public String getSelected(){
         //for(int i=0; i<nameButton.length;i++){
             return group.getSelection().getActionCommand();
+        
+    }
+    public void setLabel(Shape S){
+            
+            textField[0].setText(S.getIdName());
+            textField[1].setText(""+S.getCorner().getAbsis());
+            textField[2].setText(""+S.getCorner().getOrdinat());
+            textField[3].setText(""+S.getLength());
+            textField[4].setText(""+S.getWidth());
+            //textField[i].setText("Anurag jain(csanuragjain)"); 
+            
         
     }
 }

@@ -33,6 +33,11 @@ public abstract class Shape2D extends Thread  implements Shape {
             drawingProperty.add(new Keyframe());
         }
         corner = new Point();
+//        for (int i = 0; i < 10; i++) {
+//            this.setTimeLineI(i, 1, 2*i, corner);
+//        }
+        
+        
     }
     
 //        public void addWidth(float w) {
@@ -63,6 +68,7 @@ public abstract class Shape2D extends Thread  implements Shape {
      * getter titik tengah  untuk sebuah objek
      * @return titik tengah dalam objek 
      */
+    @Override
     public Point getCorner(){
         return corner;
     }
@@ -73,6 +79,8 @@ public abstract class Shape2D extends Thread  implements Shape {
     public String getObjectId(){
         return id;
     }
+    
+    
     /**
      * getter Keyframe sekarang untuk sebuah objek
      * @return sebuah status objek sekarang dari Shape 
@@ -120,10 +128,12 @@ public abstract class Shape2D extends Thread  implements Shape {
             k.setNewPosition(P);
         }
     }
+    
     /**
      * setter id untuk nama objek
      * @param _id id baru untuk nama objek
      */
+    @Override
     public void setId(String _id){
         id = _id;
     }
@@ -162,17 +172,27 @@ public abstract class Shape2D extends Thread  implements Shape {
         drawingProperty.remove(index);
     }
     
+    @Override
     public void play() {
         isPlay = true;
         while (keyframeIdx < drawingProperty.size()) {
+            this.draw(keyframeIdx);
             keyframeIdx++;
         }
     }
     
+    @Override
     public void pause() {
         isPlay = false;
     }
+    @Override
     public void reset() {
         keyframeIdx = 0;
     }
+    
+    @Override
+    public String getIdName(){
+        return id;
+    }
+   
 }

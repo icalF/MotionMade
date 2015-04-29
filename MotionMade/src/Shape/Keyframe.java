@@ -20,7 +20,7 @@ public class Keyframe {
     public Keyframe(){
         newPosition = null;
         newAngle = 0;
-        constResize = 1;
+        constResize = 2;
     }
     public Keyframe(Point P){
         newPosition = new Point(P);
@@ -84,20 +84,20 @@ public class Keyframe {
      * @param shift  
      */
     public void move(Point shift) {
-        newPosition.move(shift.getAbsis(), shift.getOrdinat());
+        //newPosition.move(shift.getAbsis(), shift.getOrdinat());
     }
     /**
      * mengeksekusi efek perubahan ukuran pada shape terhadap time tertentu pada objek
      * @param time event yang akan dieksekusi pada suatu objek  
      */
     public void resizeObject(double time) {
-        constResize += time;
+        //constResize += time;
     }
     /**
      * mengeksekusi efek berputar pada shape terhadap time tertentu pada objek
      * @param angle
      */
     public void rotateObject(double angle) {
-        newAngle += angle;
+        //newAngle += angle;
     }
 }

@@ -14,17 +14,24 @@ import java.util.ArrayList;
  */
 public class Line implements Shape {
     private String borderColor;
+    private String id;
     private Point startPoint;
     private Point endPoint;
     private ArrayList<Keyframe> drawingProperty;
     private java.awt.Shape shapeForm;
+    
+    private boolean isPlay;
+    private int keyframeIdx;
     /**
      * menggambar sebuah garis tepi
+     * @param sP
      */
+    @Override
     public void draw(Point sP){
         shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
     
+    @Override
     public java.awt.Shape getShape(){
         return shapeForm;
     }
@@ -114,5 +121,45 @@ public class Line implements Shape {
     @Override
     public void draw(int second) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void play() {
+        isPlay = true;
+        while (keyframeIdx < drawingProperty.size()) {
+            this.draw(keyframeIdx);
+            keyframeIdx++;
+        }
+    }
+    
+    @Override
+    public void pause() {
+        isPlay = false;
+    }
+    @Override
+    public void reset() {
+        keyframeIdx = 0;
+    }
+
+    @Override
+    public void setId(String ID) {
+        id=ID;
+    }
+    @Override
+    public String getIdName(){
+        return id;
+    }
+
+    @Override
+    public Point getCorner() {
+        return startPoint;
+    }
+    @Override
+     public double getWidth(){
+        return startPoint.distanceTo(endPoint);
+    }
+    @Override
+    public double getLength(){
+        return 0;
     }
 }

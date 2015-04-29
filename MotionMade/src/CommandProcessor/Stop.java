@@ -5,16 +5,17 @@
  */
 package CommandProcessor;
 
-import Shape.Shape2D;
+import Shape.Shape;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Stop extends Command {
     @Override
-    public void run(List<Shape2D> l) {
-        for (Shape2D d : l) {
-            d.pause();
-            d.reset();
+    public void run(ArrayList<Shape> l) {
+        for (Shape d : l) {
+           // d.pause();
+           // d.reset();
         }
     }    
 }

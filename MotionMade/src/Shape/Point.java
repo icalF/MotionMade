@@ -18,8 +18,8 @@ public class Point {
      * Membuat point dengan absis dan ordint sembarng
      */
     public Point() {
-        x = Math.random();
-        y = Math.random();
+        x = 0;
+        y = 0;
     }
     
     /**

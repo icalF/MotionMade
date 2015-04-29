@@ -76,7 +76,7 @@ public class Canvas extends JComponent{
           //EDIT
           
           //bentuk.setCorner(startDragPoint);
-          
+          bentuk.setId(""+currentShape+" "+shapes.size());
           //Drawable r = makeRectangle(startDragPoint.x, startDragPoint.y, e.getX(), e.getY());
           shapes.add(bentuk);
           startDragPoint = null;
@@ -138,7 +138,7 @@ public class Canvas extends JComponent{
     }
     
     
-    public Shape getShapeof(int i){
+    public Shape getShapeOf(int i){
         return shapes.get(i);
     }
     public int getObject(){
@@ -146,10 +146,18 @@ public class Canvas extends JComponent{
     }
     
     public void newShape(){
-        for(Shape S : shapes){
-            S.play();
-            repaint();
+        int i=0;
+        while (i< 10000) {
+        for(Shape s:shapes){
+            s.draw(i);
         }
+        
+            repaint();
+            
+            if(i==90)i=0;
+            i++;
+        }
+        
         
     }
 }

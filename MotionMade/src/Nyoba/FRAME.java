@@ -5,6 +5,7 @@
  */
 package Nyoba;
 
+import CommandProcessor.Play;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -36,6 +37,11 @@ public class FRAME {
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(FRAME.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        int currentObject =0;
+        int nObject=0;
+        int currentKeyframe =0;
+        
         JFrame Main = new JFrame();
         Main.setSize(1500, 700);
         Main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,21 +88,30 @@ public class FRAME {
         timeLinePanel.setPreferredSize(new Dimension(800,130));
         Main.add(timeLinePanel,BorderLayout.SOUTH);
         Main.setVisible(true);
-        int currentObject =0;
+        
         
         while(true){
             
             canvasPanel.setCurrentShape(propertyPanel.getButtonGroup().getSelection().getActionCommand());
             //canvasPanel.updateCanvas();
-            if(currentObject != canvasPanel.getObject()){
-                currentObject++;
+            if(nObject != canvasPanel.getObject()){
+                nObject++;
                 timeLinePanel.addTable();
+                
             }
             if(propertyPanel.getButtonGroup().getSelection().getActionCommand().equalsIgnoreCase("select")){
                canvasPanel.newShape(); 
+               canvasPanel.newShape(); 
+            }
+            if(currentObject!=timeLinePanel.getCurrentObject()){
+                currentObject=timeLinePanel.getCurrentObject();
+                propertyPanel.setLabel(canvasPanel.getShapeOf(currentObject));
             }
             //c
+            //Play p = new Play().run(canvasPanel.getObject());
             
         }
+       // canvasPanel.newShape();
+       // canvasPanel.newShape();
     }
 }

@@ -20,6 +20,7 @@ public class Ellipse extends Shape2D {
      * dan minor
      * @param startPoint 
      */
+    @Override
     public void draw(Point startPoint) {
       shapeForm= new Ellipse2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), semiMinorAxis, semiMinorAxis);
     }
@@ -29,6 +30,7 @@ public class Ellipse extends Shape2D {
      * @param startPoint
      * @param endPoint
      */
+    @Override
     public void draw(Point startPoint, Point endPoint) {
         semiMajorAxis=Math.abs(startPoint.getAbsis()-endPoint.getAbsis());
         semiMinorAxis=Math.abs(startPoint.getOrdinat()-endPoint.getOrdinat());
@@ -39,6 +41,7 @@ public class Ellipse extends Shape2D {
      *
      * @return
      */
+    @Override
     public java.awt.Shape getShape(){
         return shapeForm;
     }
@@ -85,5 +88,13 @@ public class Ellipse extends Shape2D {
         double x1 = x* semiMajorAxis;
         double x2 = x* semiMinorAxis;
         shapeForm= new Ellipse2D.Double(newPoint.getAbsis(),newPoint.getOrdinat(), x1,x2);
+    }
+    @Override
+     public double getWidth(){
+        return semiMajorAxis;
+    }
+    @Override
+    public double getLength(){
+        return semiMinorAxis;
     }
 }

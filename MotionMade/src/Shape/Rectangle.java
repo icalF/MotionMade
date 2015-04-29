@@ -27,6 +27,7 @@ public class Rectangle extends Shape2D {
         double x1 = x* width;
         double x2 = x* length;
         shapeRectangle= new Rectangle2D.Double(newPoint.getAbsis(),newPoint.getOrdinat(), x1,x2 );
+      
     }
     /**
      * Menggambar shape pertama kali, sekaligus inisialisasi nilai panajng dan lebar
@@ -64,6 +65,7 @@ public class Rectangle extends Shape2D {
      * getter panjang segi empat
      * @return length
      */
+    @Override
     public double getLength(){
         return length;
     }
@@ -78,6 +80,7 @@ public class Rectangle extends Shape2D {
      * getter lebar segi empat
      * @return width
      */
+    @Override
     public double getWidth(){
         return width;
     }
@@ -86,6 +89,6 @@ public class Rectangle extends Shape2D {
     public void draw(Point startpoint) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+     
     
 }

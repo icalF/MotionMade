@@ -5,7 +5,8 @@
  */
 package CommandProcessor;
 
-import Shape.Shape2D;
+import Shape.Shape;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,5 +19,5 @@ public abstract class Command {
      * 
      * @param l
      */
-    abstract public void run(List<Shape2D> l);
+    abstract public void run(ArrayList<Shape> l);
 }
