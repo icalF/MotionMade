@@ -32,23 +32,9 @@ public abstract class Shape2D extends Thread  implements Shape {
         for (int i = 0; i < 10000; i++) {
             drawingProperty.add(new Keyframe());
         }
-        corner = new Point();
-//        for (int i = 0; i < 10; i++) {
-//            this.setTimeLineI(i, 1, 2*i, corner);
-//        }
-        
-        
+        corner = new Point();  
     }
     
-//        public void addWidth(float w) {
-//            
-//            this.width += w;
-//        }
-//
-//        public void addHeight(float h) {
-//            
-//            this.height += h;
-//        }
 
     /**
      * getter Fill color  untuk sebuah objek

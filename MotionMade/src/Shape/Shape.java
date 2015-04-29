@@ -12,7 +12,6 @@ package Shape;
 public interface Shape   {
     /**
      * untuk setiap bentuk harus mampu menggambarnya dalam sebuah bidang
-     * @param startpoint
      */
     public void draw();
     public void draw(Point startpoint);

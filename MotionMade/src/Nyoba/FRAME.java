@@ -88,6 +88,7 @@ public class FRAME {
         
         ImageIcon image = new ImageIcon("image/pic1.jpg");
         JLabel label = new JLabel("", image, JLabel.CENTER);
+        
         JPanel header = new JPanel();
         //header.add( label, BorderLayout.CENTER );
         
