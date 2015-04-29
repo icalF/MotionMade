@@ -23,42 +23,67 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TimeLine extends JPanel  {
     private JButton btn1 = new JButton("Click here to add column!");
+    private JButton btn2 = new JButton("Click here to take screenshot!");
+    private JPanel tblPanel;
+    private JPanel btnPanel;
+    private int numObject = 0;
     
     public TimeLine() {
-        this.setLayout(new GridLayout(1,2));
+        this.setLayout(new GridLayout(0,1));
+        
         
         DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Shape ID");
         for (int i = 1; i <= 50; i++)
             model.addColumn(Integer.toString(i));
         
         JTable table = new JTable(model);
         
-        JScrollPane tableContainer = new JScrollPane(table);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        JScrollPane tableContainer = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         
         btn1.addActionListener(new ActionListener()
         {
             @Override
+            @SuppressWarnings("empty-statement")
             public void actionPerformed(ActionEvent e) {
                 // display/center the jdialog when the button is pressed
                 DefaultTableModel mdl = (DefaultTableModel) table.getModel();
-                mdl.addRow(new Object[50]);
-                
+                Object[] A1 = new Object[51];
+                A1[0] = new Integer(numObject+1);
+                mdl.addRow(A1);
+                numObject++;
             }
         });
         
-        /*table.addMouseListener(new MouseAdapter() {
+        table.addMouseListener(new MouseAdapter() {
            public void mouseClicked(MouseEvent e) {
                JTable target = (JTable) e.getSource();
-               String s = JOptionPane.showInputDialog(frame, "You Clicked at [" + (target.getSelectedRow()+1) + ", " + (target.getSelectedColumn()+1) + "]\nGet Input:" );
+               JPanel myPanel = new JPanel();
+               JTextField field1 = new JTextField(10);
+               JTextField field2 = new JTextField(10);
                
-               if (s != null) {
-                   target.setValueAt(s, target.getSelectedRow(), target.getSelectedColumn());
-               }
+               myPanel.add(field1);
+               myPanel.add(field2);
+               
+               JOptionPane.showMessageDialog(null, myPanel);
+               //String s = JOptionPane.showInputDialog("You Clicked at [" + (target.getSelectedRow()+1) + ", " + (target.getSelectedColumn()+1) + "]\nGet Input:" );
+               
+               
+                target.setValueAt(field1.getText()+","+field2.getText(), target.getSelectedRow(), target.getSelectedColumn());
+               
            } 
-        });*/
+        });
         
-        this.add(tableContainer);
-        this.add(btn1);
+        tblPanel = new JPanel();
+        btnPanel = new JPanel();
+        
+        tblPanel.add(tableContainer);
+        btnPanel.add(btn1);
+        btnPanel.add(btn2);
+        
+        this.add(tblPanel);
+        this.add(btnPanel);
         
     }
 
