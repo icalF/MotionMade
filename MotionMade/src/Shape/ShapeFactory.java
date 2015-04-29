@@ -21,9 +21,7 @@ public class ShapeFactory {
       } else if(shapeType.equalsIgnoreCase("RECTANGLE")){
          return  new Rectangle();
          
-      } else if(shapeType.equalsIgnoreCase("TRIANGLE")){
-          return  new Triangle();
-      } else if(shapeType.equalsIgnoreCase("LINE")){
+      }  else if(shapeType.equalsIgnoreCase("LINE")){
           return new Line();  
       }
       

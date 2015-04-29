@@ -29,7 +29,7 @@ public abstract class Shape2D extends Thread  implements Shape {
         isPlay = false;
         keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10000; i++) {
             drawingProperty.add(new Keyframe());
         }
         corner = new Point();
@@ -144,6 +144,7 @@ public abstract class Shape2D extends Thread  implements Shape {
      * @param resizeFactor
      * @param displacement 
      */
+    @Override
     public void setTimeLineI(int second, double angle, 
         double resizeFactor, Point displacement) {
         Keyframe TL = new Keyframe(getTimeLineOf(second));
@@ -175,9 +176,11 @@ public abstract class Shape2D extends Thread  implements Shape {
     @Override
     public void play() {
         isPlay = true;
+        int second=0;
         while (keyframeIdx < drawingProperty.size()) {
-            this.draw(keyframeIdx);
+            this.draw(second);
             keyframeIdx++;
+            if(keyframeIdx%50==0)second++;
         }
     }
     
@@ -188,6 +191,7 @@ public abstract class Shape2D extends Thread  implements Shape {
     @Override
     public void reset() {
         keyframeIdx = 0;
+        this.draw();
     }
     
     @Override

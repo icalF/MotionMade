@@ -9,12 +9,12 @@ import Shape.Point;
 import Shape.ShapeFactory;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
-import java.awt.BorderLayout;
+
 import java.awt.Color;
-import java.awt.FlowLayout;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
+
 import java.awt.RenderingHints;
 //import java.awt.Drawable;
 import java.awt.event.MouseAdapter;
@@ -22,17 +22,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
+
 import java.awt.geom.Line2D;
-import java.awt.geom.PathIterator;
-import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
+
 import java.util.ArrayList;
 import javax.swing.JComponent;
-import javax.swing.JPanel;
+
 /**
  *
  * @author FiqieUlya
@@ -146,19 +141,23 @@ public class Canvas extends JComponent{
     }
     
     public void newShape(){
-        int i=0;
-        while (i< 10000) {
-        for(Shape s:shapes){
-            s.draw(i);
-        }
+//        int i=0;
+//        while (i< 10000) {
+//        for(Shape s:shapes){
+//            s.draw(i);
+//        }
+//        
+//            repaint();
+//            
+//            if(i==90)i=0;
+//            i++;
+//        }
+        repaint();
         
-            repaint();
-            
-            if(i==90)i=0;
-            i++;
-        }
         
-        
+    }
+    public ArrayList<Shape> getArrayList(){
+        return shapes;
     }
 }
 

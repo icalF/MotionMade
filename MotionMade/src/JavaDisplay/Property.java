@@ -32,7 +32,7 @@ import javax.swing.border.Border;
  * @author FiqieUlya
  */
 public class Property extends JPanel{
-    private final String[] nameButton ={"select","triangle","rectangle","ellipse","line"};
+    private final String[] nameButton ={"rectangle","ellipse","line"};
     private final JRadioButton [] button = new JRadioButton[10];
     private final ButtonGroup group;
     private final String[] nameLabel = {"ID Name  ","Absis   ","Ordinat ","Length  ","Width   "};
@@ -42,7 +42,6 @@ public class Property extends JPanel{
         //Create the radio buttons.
         int i=0;
         for(String name : nameButton){
-            ImageIcon ico = new ImageIcon("img/triangle.png");
             button[i] = new JRadioButton(name);
             //button[i].setIcon(ico);
             button[i].setActionCommand(name);
@@ -102,8 +101,6 @@ public class Property extends JPanel{
             textField[2].setText(""+S.getCorner().getOrdinat());
             textField[3].setText(""+S.getLength());
             textField[4].setText(""+S.getWidth());
-            //textField[i].setText("Anurag jain(csanuragjain)"); 
             
-        
     }
 }

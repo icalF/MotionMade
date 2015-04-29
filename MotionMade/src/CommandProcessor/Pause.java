@@ -14,7 +14,7 @@ public class Pause extends Command {
     @Override
     public void run(ArrayList<Shape> l) {
         for (Shape d : l) {
-            //d.pause();
+            d.pause();
         }
     }    
 }

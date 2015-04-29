@@ -40,14 +40,15 @@ public class ShapeFactoryTest {
     /**
      * Test of getShape method, of class ShapeFactory.
      */
-    @Test
-    public void testGetShape() {
-        System.out.println("getShape");
-        String shapeType = "";
-        ShapeFactory instance = new ShapeFactory();
-        Shape expResult = null;
-        Shape result = instance.getShape(shapeType);
-        assertEquals(expResult, result);
-    }
-    
+//    @Test
+//    public void testGetShape() {
+//        System.out.println("getShape");
+//        String shapeType = "Line";
+//        ShapeFactory Factory= new ShapeFactory();
+//        
+//        Shape expResult = new Line();
+//        Shape result =  Factory.getShape(shapeType);
+//        assertEquals(expResult, result);
+//    }
+//    
 }
