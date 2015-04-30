@@ -29,26 +29,12 @@ public abstract class Shape2D extends Thread  implements Shape {
         isPlay = false;
         keyframeIdx = 0;
         drawingProperty = new ArrayList<>();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10000; i++) {
             drawingProperty.add(new Keyframe());
         }
-        corner = new Point();
-//        for (int i = 0; i < 10; i++) {
-//            this.setTimeLineI(i, 1, 2*i, corner);
-//        }
-        
-        
+        corner = new Point();  
     }
     
-//        public void addWidth(float w) {
-//            
-//            this.width += w;
-//        }
-//
-//        public void addHeight(float h) {
-//            
-//            this.height += h;
-//        }
 
     /**
      * getter Fill color  untuk sebuah objek
@@ -144,6 +130,7 @@ public abstract class Shape2D extends Thread  implements Shape {
      * @param resizeFactor
      * @param displacement 
      */
+    @Override
     public void setTimeLineI(int second, double angle, 
         double resizeFactor, Point displacement) {
         Keyframe TL = new Keyframe(getTimeLineOf(second));
@@ -175,9 +162,11 @@ public abstract class Shape2D extends Thread  implements Shape {
     @Override
     public void play() {
         isPlay = true;
+        int second=0;
         while (keyframeIdx < drawingProperty.size()) {
-            this.draw(keyframeIdx);
+            this.draw(second);
             keyframeIdx++;
+            if(keyframeIdx%50==0)second++;
         }
     }
     
@@ -188,6 +177,7 @@ public abstract class Shape2D extends Thread  implements Shape {
     @Override
     public void reset() {
         keyframeIdx = 0;
+        this.draw();
     }
     
     @Override

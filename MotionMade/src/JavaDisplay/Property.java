@@ -32,17 +32,16 @@ import javax.swing.border.Border;
  * @author FiqieUlya
  */
 public class Property extends JPanel{
-    private final String[] nameButton ={"select","triangle","rectangle","ellipse","line"};
+    private final String[] nameButton ={"Rectangle","Ellipse","Line"};
     private final JRadioButton [] button = new JRadioButton[10];
     private final ButtonGroup group;
-    private final String[] nameLabel = {"ID Name  ","Absis   ","Ordinat ","Length  ","Width   "};
+    private final String[] nameLabel = {"id.jpg","absis.jpg","ordinat.jpg","length.jpg","width.jpg"};
     private final JLabel [] label = new JLabel[5];
     private final JTextField []textField = new JTextField[5];
     private void createRadioButton(){
         //Create the radio buttons.
         int i=0;
         for(String name : nameButton){
-            ImageIcon ico = new ImageIcon("img/triangle.png");
             button[i] = new JRadioButton(name);
             //button[i].setIcon(ico);
             button[i].setActionCommand(name);
@@ -77,9 +76,9 @@ public class Property extends JPanel{
         PropertyShape.setLayout(new GridLayout(0,2));
         PropertyShape.setPreferredSize(new Dimension(200,100));
         for(int i=0;i<nameLabel.length;i++){
-            label[i]=new JLabel(); 
-            label[i].setText(nameLabel[i]); 
+            label[i]=new JLabel(new ImageIcon("image/"+nameLabel[i])); 
             textField[i] =new JTextField();
+            textField[i].setEditable(false);
             //textField[i].setText("Anurag jain(csanuragjain)"); 
             PropertyShape.add(label[i]);
             PropertyShape.add(textField[i]);
@@ -102,8 +101,6 @@ public class Property extends JPanel{
             textField[2].setText(""+S.getCorner().getOrdinat());
             textField[3].setText(""+S.getLength());
             textField[4].setText(""+S.getWidth());
-            //textField[i].setText("Anurag jain(csanuragjain)"); 
             
-        
     }
 }

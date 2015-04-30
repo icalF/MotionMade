@@ -12,8 +12,8 @@ package Shape;
 public interface Shape   {
     /**
      * untuk setiap bentuk harus mampu menggambarnya dalam sebuah bidang
-     * @param startpoint
      */
+    public void draw();
     public void draw(Point startpoint);
     public void draw(Point startpoint, Point endpoint);
     public java.awt.Shape getShape();
@@ -27,4 +27,7 @@ public interface Shape   {
     public Point getCorner();
     public double getWidth();
     public double getLength();
+    public Keyframe getTimeLineOf(int second);
+    public void setTimeLineI(int second, double angle, 
+    double resizeFactor, Point displacement);
 }

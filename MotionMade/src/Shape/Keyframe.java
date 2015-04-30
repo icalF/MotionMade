@@ -18,7 +18,7 @@ public class Keyframe {
      * Konstruktor default time line. parameter efek bernilai default
      */
     public Keyframe(){
-        newPosition = null;
+        newPosition = new Point(200,200);
         newAngle = 0;
         constResize = 2;
     }

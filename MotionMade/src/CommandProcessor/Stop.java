@@ -14,8 +14,8 @@ public class Stop extends Command {
     @Override
     public void run(ArrayList<Shape> l) {
         for (Shape d : l) {
-           // d.pause();
-           // d.reset();
+            d.pause();
+           d.reset();
         }
     }    
 }

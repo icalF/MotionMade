@@ -15,6 +15,10 @@ public class Rectangle extends Shape2D {
     private double length;
     private double width;
     Rectangle2D.Double shapeRectangle;
+    @Override
+    public void draw(){
+        shapeRectangle= new Rectangle2D.Double(this.getCorner().getAbsis(),this.getCorner().getOrdinat(), width,length );
+    }
     /**
      * Menggambar objek segi empat berdasarkan titik x dan y
      * @param second
