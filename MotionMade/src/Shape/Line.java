@@ -22,6 +22,7 @@ public class Line implements Shape {
     
     private boolean isPlay;
     private int keyframeIdx;
+
     /**
      * menggambar sebuah garis tepi
      * @param sP
@@ -30,6 +31,7 @@ public class Line implements Shape {
     public void draw(Point sP){
         shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
+    
     @Override
     public void setTimeLineI(int second, double angle, 
         double resizeFactor, Point displacement) {
@@ -59,6 +61,8 @@ public class Line implements Shape {
      * Konstruktor sebuah garis dengan nilai default
      */
     public void Line(){
+        isPlay = false;
+        borderColor= "#000";
         startPoint= new Point();
         endPoint= new Point();
         isPlay = false;
@@ -66,7 +70,7 @@ public class Line implements Shape {
         drawingProperty = new ArrayList<>();
         for (int i = 0; i < 10000; i++) {
             drawingProperty.add(new Keyframe());
-        }
+    }
         
     }
     /**
@@ -103,9 +107,18 @@ public class Line implements Shape {
      * @param N index yang diambil
      * @return sebuah objek ke n dari Shape 
      */
-    public Keyframe getTimeLine(int N){
+    public Keyframe getTimeLineOf(int N){
         return drawingProperty.get(N);
     }
+    
+    /**
+     * 
+     * @return
+     */
+    public Keyframe getTimeLine(){
+        return drawingProperty.get(keyframeIdx);
+    }
+    
     /**
      * tambah elemen Keyframe
      * @param TL Time Line yang akan di sisipkan
@@ -131,9 +144,7 @@ public class Line implements Shape {
     }
     
     @Override
-    public void draw(Point _startPoint, Point _endPoint) {
-        startPoint=_startPoint;
-        endPoint=_endPoint;
+    public void draw(Point startPoint, Point endPoint) {
         shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
     }
 
@@ -144,19 +155,21 @@ public class Line implements Shape {
             k.setNewPosition(P);
         }
     }
+    
+    /**
+     *
+     * @param second
+     * @param angle
+     * @param resizeFactor
+     * @param displacement
+     */
+    
 
     @Override
     public void draw(int second) {
-        Point newPoint = this.getTimeLineOf(second).getNewPosition();
-        double x = this.getTimeLineOf(second).getConstResize();
-        double x1 = (x* (endPoint.getAbsis()-startPoint.getAbsis()))+ startPoint.getAbsis();
-        double x2 = (x* (endPoint.getOrdinat()-startPoint.getOrdinat()))+ startPoint.getOrdinat();
-        shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), x1, x2);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    @Override
-    public Keyframe getTimeLineOf(int second){
-        return drawingProperty.get(second * 50);
-    }
+    
     @Override
     public void play() {
         isPlay = true;
@@ -171,12 +184,11 @@ public class Line implements Shape {
     @Override
     public void pause() {
         isPlay = false;
-        
     }
     @Override
     public void reset() {
         keyframeIdx = 0;
-        this.draw(keyframeIdx);
+        this.draw();
     }
 
     @Override
@@ -204,5 +216,5 @@ public class Line implements Shape {
     @Override
     public void draw() {
         shapeForm = new Line2D.Double(startPoint.getAbsis(), startPoint.getOrdinat(), endPoint.getAbsis(), endPoint.getOrdinat());
-    }
+}
 }
